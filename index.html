@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="大连红色旅游文化地点展示——山海之间的红色记忆，旅顺、金州与市区革命旧址的图文漫游。红色足迹研学护照，带你走过每一段可丈量的历史。" />
+  <title>滨城烽火 · 红色大连 | 红色足迹研学导览</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ===== 升级新增样式 ===== */
+    :root {
+      --gold: #c9a96e;
+      --gold-soft: #f5edd8;
+    }
+
+    /* --- Hero 升级 --- */
+    .hero-slogan {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 0.5rem 1.4rem;
+      background: rgba(158, 47, 47, 0.35);
+      border: 1px solid rgba(255, 200, 180, 0.4);
+      border-radius: 40px;
+      font-size: 0.92rem;
+      letter-spacing: 0.18em;
+      color: #ffe8de;
+      backdrop-filter: blur(4px);
+    }
+    .hero-actions .btn-passport {
+      background: linear-gradient(135deg, var(--gold), #a8864a);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(201, 169, 110, 0.4);
+    }
+    .hero-actions .btn-passport:hover { transform: translateY(-3px); }
+
+    /* --- 导览路线模块 --- */
+    .route { background: var(--cream); padding: 6rem 0; position: relative; overflow: hidden; }
+    .route::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--sea-main));
+    }
+    .route-tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.8rem; flex-wrap: wrap; }
+    .route-tab {
+      padding: 0.7rem 1.8rem; border-radius: 40px; font-weight: 600; font-size: 0.95rem;
+      letter-spacing: 0.06em; border: 2px solid var(--line); background: var(--paper);
+      color: var(--ink-soft); transition: all 0.3s var(--ease); cursor: pointer;
+    }
+    .route-tab.active { background: var(--red); color: #fff; border-color: var(--red); box-shadow: 0 8px 24px rgba(158,47,47,0.3); }
+    .route-tab .tab-time { display: block; font-size: 0.75rem; font-weight: 400; opacity: 0.8; margin-top: 2px; }
+    .route-panel { display: none; }
+    .route-panel.active { display: block; animation: fadeUp 0.5s var(--ease); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    .route-timeline { position: relative; max-width: 900px; margin: 0 auto; padding-left: 0; }
+    .route-line { position: absolute; left: 28px; top: 10px; bottom: 10px; width: 3px; background: linear-gradient(180deg, var(--red), var(--gold), var(--sea-main)); border-radius: 3px; }
+    .route-stop { position: relative; padding: 0 0 2rem 72px; }
+    .route-stop:last-child { padding-bottom: 0; }
+    .route-stop-num {
+      position: absolute; left: 0; top: 0; width: 58px; height: 58px; border-radius: 50%;
+      background: var(--paper); border: 3px solid var(--red); display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-size: 1.3rem; font-weight: 900; color: var(--red); z-index: 2;
+      box-shadow: 0 4px 14px rgba(158,47,47,0.2);
+    }
+    .route-stop.end .route-stop-num { border-color: var(--sea-main); color: var(--sea-main); }
+    .route-stop-card {
+      background: var(--paper); border-radius: var(--radius-sm); padding: 1.2rem 1.5rem;
+      box-shadow: var(--shadow-sm); border-left: 4px solid var(--red);
+    }
+    .route-stop.end .route-stop-card { border-left-color: var(--sea-main); }
+    .route-stop-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .route-stop-name { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 700; color: var(--navy); }
+    .route-stop-duration { font-size: 0.82rem; color: var(--red); font-weight: 600; background: var(--red-soft); padding: 0.15rem 0.7rem; border-radius: 20px; }
+    .route-stop-meta { font-size: 0.88rem; color: var(--ink-soft); display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .route-stop-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+    .route-stop-desc { font-size: 0.9rem; color: var(--ink-mute); margin-top: 0.5rem; }
+    .route-summary {
+      max-width: 900px; margin: 2rem auto 0; display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center;
+    }
+    .route-summary-item {
+      background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm);
+      padding: 0.9rem 1.6rem; text-align: center; min-width: 140px;
+    }
+    .route-summary-item .num { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 900; color: var(--red); }
+    .route-summary-item .label { font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.2rem; }
+    .route-note { text-align: center; margin-top: 1.6rem; font-size: 0.85rem; color: var(--ink-mute); }
+
+    /* --- 地点卡片深化 --- */
+    .site-card-deep { margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px dashed var(--line); }
+    .site-card-deep p { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 0.5rem; line-height: 1.7; }
+    .site-card-deep .fact-tag {
+      display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 0.1rem 0.5rem;
+      border-radius: 4px; margin-right: 0.4rem; letter-spacing: 0.04em;
+    }
+    .fact-tag.history { background: var(--red-soft); color: var(--red); }
+    .fact-tag.story { background: var(--gold-soft); color: #8a6d3b; }
+    .fact-tag.today { background: #e0edf5; color: var(--sea-main); }
+    .site-task-badge {
+      display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.7rem;
+      font-size: 0.8rem; font-weight: 600; color: var(--gold); background: var(--gold-soft);
+      padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid rgba(201,169,110,0.4);
+    }
+
+    /* --- 研学护照创新模块 --- */
+    .passport { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-ink) 100%); padding: 6rem 0; color: #fff; position: relative; overflow: hidden; }
+    .passport::before {
+      content: ""; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px;
+      border-radius: 50%; background: radial-gradient(circle, rgba(158,47,47,0.25), transparent 70%);
+    }
+    .passport .section-head .section-title { color: #fff; }
+    .passport .section-head .section-title .accent { color: var(--gold); }
+    .passport .section-head .section-lead { color: rgba(255,255,255,0.75); }
+    .passport .section-head .section-eyebrow { color: var(--gold); }
+    .passport .section-head .section-eyebrow::before, .passport .section-head .section-eyebrow::after { background: var(--gold); }
+    .passport-concept {
+      max-width: 860px; margin: 0 auto 3rem; text-align: center;
+      padding: 2rem; border: 1px solid rgba(201,169,110,0.3); border-radius: var(--radius);
+      background: rgba(255,255,255,0.03); backdrop-filter: blur(6px);
+    }
+    .passport-concept h3 { font-size: 1.6rem; color: var(--gold); margin-bottom: 0.8rem; }
+    .passport-concept p { color: rgba(255,255,255,0.82); font-size: 1.05rem; max-width: 680px; margin: 0 auto; }
+    .passport-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; max-width: 1000px; margin: 0 auto; }
+    .passport-step {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-sm); padding: 1.6rem 1.2rem; text-align: center;
+      transition: transform 0.3s var(--ease), border-color 0.3s;
+    }
+    .passport-step:hover { transform: translateY(-6px); border-color: rgba(201,169,110,0.5); }
+    .passport-step-icon {
+      width: 56px; height: 56px; margin: 0 auto 1rem; border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), var(--red-deep));
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+      box-shadow: 0 8px 20px rgba(158,47,47,0.4);
+    }
+    .passport-step h4 { color: #fff; font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .passport-step p { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin: 0; line-height: 1.6; }
+    .passport-cta { text-align: center; margin-top: 2.8rem; }
+    .passport-cta .btn { background: linear-gradient(135deg, var(--gold), #a8864a); color: #fff; box-shadow: 0 12px 30px rgba(201,169,110,0.4); }
+    .passport-cta .btn:hover { transform: translateY(-3px); }
+
+    /* --- 高校研学合作 --- */
+    .campus { background: var(--paper); padding: 6rem 0; }
+    .campus-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: start; }
+    .campus-intro h3 { font-size: 1.5rem; color: var(--navy); margin-bottom: 1rem; }
+    .campus-intro p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 1.2rem; }
+    .campus-features { display: grid; gap: 0.9rem; margin-top: 1.4rem; }
+    .campus-feature {
+      display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 1.2rem;
+      background: var(--cream); border-radius: var(--radius-sm); border: 1px solid var(--line);
+    }
+    .campus-feature-icon {
+      flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--red-soft);
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--red);
+    }
+    .campus-feature h4 { font-size: 1rem; color: var(--navy); margin-bottom: 0.2rem; }
+    .campus-feature p { font-size: 0.88rem; color: var(--ink-soft); margin: 0; }
+    .campus-card {
+      background: linear-gradient(160deg, var(--navy), var(--navy-deep)); border-radius: var(--radius);
+      padding: 2.2rem; color: #fff; box-shadow: var(--shadow-lg);
+    }
+    .campus-card h3 { color: var(--gold); font-size: 1.35rem; margin-bottom: 0.5rem; }
+    .campus-card .campus-sub { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .campus-form-group { margin-bottom: 1rem; }
+    .campus-form-group label { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-bottom: 0.35rem; letter-spacing: 0.04em; }
+    .campus-form-group input, .campus-form-group select, .campus-form-group textarea {
+      width: 100%; padding: 0.7rem 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08); color: #fff; font-family: inherit; font-size: 0.92rem;
+      transition: border-color 0.25s;
+    }
+    .campus-form-group input::placeholder, .campus-form-group textarea::placeholder { color: rgba(255,255,255,0.4); }
+    .campus-form-group input:focus, .campus-form-group select:focus, .campus-form-group textarea:focus {
+      outline: none; border-color: var(--gold);
+    }
+    .campus-form-group select option { background: var(--navy); color: #fff; }
+    .campus-submit {
+      width: 100%; padding: 0.9rem; border-radius: 8px; background: linear-gradient(135deg, var(--gold), #a8864a);
+      color: #fff; font-weight: 700; font-size: 1rem; letter-spacing: 0.08em; cursor: pointer;
+      border: none; transition: transform 0.25s, box-shadow 0.25s; margin-top: 0.5rem;
+    }
+    .campus-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,169,110,0.4); }
+    .campus-ranking { margin-top: 2.5rem; }
+    .campus-ranking h4 { color: var(--navy); font-size: 1.15rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .ranking-list { display: grid; gap: 0.6rem; }
+    .ranking-item {
+      display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1.2rem;
+      background: var(--cream); border-radius: var(--radius-sm); border: 1px solid var(--line);
+      transition: transform 0.25s;
+    }
+    .ranking-item:hover { transform: translateX(4px); }
+    .ranking-rank {
+      flex: none; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-weight: 900; font-size: 0.95rem;
+    }
+    .ranking-item:nth-child(1) .ranking-rank { background: linear-gradient(135deg, #ffd700, #daa520); color: #fff; }
+    .ranking-item:nth-child(2) .ranking-rank { background: linear-gradient(135deg, #c0c0c0, #a0a0a0); color: #fff; }
+    .ranking-item:nth-child(3) .ranking-rank { background: linear-gradient(135deg, #cd7f32, #a0522d); color: #fff; }
+    .ranking-item:nth-child(n+4) .ranking-rank { background: var(--cream-2); color: var(--ink-soft); }
+    .ranking-name { flex: 1; font-weight: 600; font-size: 0.95rem; color: var(--ink); }
+    .ranking-score { font-family: var(--font-serif); font-weight: 700; color: var(--red); font-size: 1rem; }
+    .ranking-score small { font-size: 0.75rem; color: var(--ink-mute); font-weight: 400; }
+
+    /* --- 史实标注 --- */
+    .fact-note {
+      display: inline-block; font-size: 0.72rem; padding: 0.1rem 0.45rem; border-radius: 4px;
+      background: #fff3cd; color: #856404; font-weight: 600; margin-left: 0.3rem; vertical-align: middle;
+    }
+    .pending-list {
+      background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-sm);
+      padding: 1.5rem 2rem; margin-top: 1.5rem;
+    }
+    .pending-list h4 { color: var(--red); font-size: 1.05rem; margin-bottom: 0.8rem; }
+    .pending-list ul { display: grid; gap: 0.5rem; }
+    .pending-list li { position: relative; padding-left: 1.4rem; font-size: 0.9rem; color: var(--ink-soft); }
+    .pending-list li::before { content: "⚠"; position: absolute; left: 0; color: var(--gold); }
+
+    /* --- 响应式补充 --- */
+    @media (max-width: 860px) {
+      .passport-flow { grid-template-columns: repeat(2, 1fr); }
+      .campus-grid { grid-template-columns: 1fr; }
+      .route-summary-item { min-width: 120px; padding: 0.7rem 1rem; }
+    }
+    @media (max-width: 640px) {
+      .passport-flow { grid-template-columns: 1fr; }
+      .route-stop { padding-left: 60px; }
+      .route-stop-num { width: 48px; height: 48px; font-size: 1.1rem; }
+      .route-line { left: 23px; }
+      .hero-slogan { font-size: 0.8rem; padding: 0.4rem 1rem; }
+    }
+
+    /* ===== 打卡 · 护照 · 报告 功能样式（追加，不影响原有样式） ===== */
+    .checkin-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+      margin-top: 1rem; padding: 0.55rem 1.3rem;
+      border: 1px solid var(--red); border-radius: 40px;
+      background: var(--red); color: #fff;
+      font-size: 0.88rem; font-weight: 600; letter-spacing: 0.05em;
+      cursor: pointer; transition: all 0.25s var(--ease);
+      font-family: inherit;
+    }
+    .checkin-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(158,47,47,0.3); }
+    .checkin-btn.done {
+      background: #d8d2c8; border-color: #b8b0a2; color: #8a8578;
+      cursor: default; transform: none; box-shadow: none;
+    }
+    .passport-nav-link { cursor: pointer; }
+    .passport-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(3, 21, 46, 0.55); backdrop-filter: blur(4px);
+      display: none; align-items: center; justify-content: center; padding: 1.2rem;
+    }
+    .passport-overlay.open { display: flex; }
+    .passport-modal {
+      width: min(560px, 100%); max-height: 86vh; overflow-y: auto;
+      background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow-lg);
+      padding: 2rem 2.2rem; position: relative; animation: fadeUp 0.35s var(--ease);
+    }
+    .passport-close {
+      position: absolute; top: 14px; right: 18px; font-size: 1.4rem;
+      color: var(--ink-mute); cursor: pointer; line-height: 1;
+    }
+    .passport-close:hover { color: var(--red); }
+    .passport-modal h3 { font-size: 1.5rem; color: var(--navy); margin-bottom: 0.3rem; }
+    .passport-modal .pm-sub { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 1.2rem; }
+    .passport-progress-head { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 0.5rem; }
+    .passport-progress { height: 12px; background: var(--cream-2); border-radius: 20px; overflow: hidden; margin-bottom: 1.4rem; }
+    .passport-progress-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--red), var(--gold)); border-radius: 20px; transition: width 0.6s var(--ease); }
+    .passport-list-title { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.7rem; }
+    .passport-list { display: grid; gap: 0.55rem; margin-bottom: 1.4rem; }
+    .passport-item {
+      display: flex; align-items: center; gap: 0.8rem; padding: 0.65rem 1rem;
+      background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    }
+    .passport-item .pi-status { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--sea-light); }
+    .passport-item.checked .pi-status { background: var(--red); box-shadow: 0 0 0 3px rgba(158,47,47,0.15); }
+    .passport-item .pi-name { flex: 1; font-size: 0.92rem; color: var(--ink); }
+    .passport-item .pi-time { font-size: 0.78rem; color: var(--ink-mute); }
+    .passport-item.checked .pi-name { color: var(--red); font-weight: 600; }
+    .passport-modal .gen-report {
+      width: 100%; padding: 0.95rem; border: none; border-radius: 10px;
+      background: linear-gradient(135deg, var(--red), var(--red-deep));
+      color: #fff; font-weight: 700; font-size: 1.02rem; letter-spacing: 0.1em;
+      cursor: pointer; transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .passport-modal .gen-report:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(158,47,47,0.35); }
+    .passport-modal .gen-report:disabled { background: #b8b0a2; cursor: default; transform: none; box-shadow: none; }
+    .passport-tip { font-size: 0.8rem; color: var(--ink-mute); text-align: center; margin-top: 0.7rem; }
+    .report-stage {
+      position: fixed; left: -10000px; top: 0; width: 794px;
+      background: #fff; color: #222; padding: 48px; box-sizing: border-box;
+      font-family: var(--font-sans);
+    }
+    .report-stage h1 { font-family: var(--font-serif); font-size: 28px; color: var(--red-deep); margin: 0 0 4px; }
+    .report-stage .rs-sub { color: #666; font-size: 13px; margin-bottom: 20px; }
+    .report-stage .rs-banner { background: linear-gradient(135deg, var(--navy), var(--navy-deep)); color: #fff; padding: 18px 22px; border-radius: 12px; margin-bottom: 22px; }
+    .report-stage .rs-banner h2 { color: #fff; font-size: 20px; margin: 0 0 4px; }
+    .report-stage .rs-banner p { color: rgba(255,255,255,0.8); font-size: 13px; margin: 0; }
+    .report-stage .rs-section { margin-bottom: 18px; }
+    .report-stage .rs-section h3 { font-size: 16px; color: var(--navy); border-left: 4px solid var(--red); padding-left: 10px; margin: 0 0 10px; }
+    .report-stage .rs-row { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-bottom: 1px dashed #e3ddcf; font-size: 14px; }
+    .report-stage .rs-row.done .rs-dot { background: var(--red); }
+    .report-stage .rs-dot { width: 10px; height: 10px; border-radius: 50%; background: #cfd8de; flex: none; }
+    .report-stage .rs-name { flex: 1; }
+    .report-stage .rs-time { color: #888; font-size: 12px; }
+    .report-stage .rs-meta { font-size: 12px; color: #999; margin-top: 24px; padding-top: 14px; border-top: 1px solid #eee; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <!-- ======= 顶部导航 ======= -->
+  <header class="site-nav" id="siteNav">
+    <div class="nav-inner container">
+      <a href="#hero" class="brand">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 12h17M12 3.5c3 2.5 3 14.5 0 17c-3-2.5-3-14.5 0-17Z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+        </span>
+        <span class="brand-text">滨城烽火<span class="brand-sub">·</span>红色大连</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#route">导览路线</a>
+        <a href="#sites">红色地标</a>
+        <a href="#passport">研学护照</a>
+        <a href="#featured">城市记忆</a>
+        <a href="#campus">高校合作</a>
+        <a href="#timeline">历史时间线</a>
+        <a href="javascript:void(0)" class="passport-nav-link" id="openPassport">我的护照</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======= 首屏 Hero ======= -->
+  <section class="hero" id="hero">
+    <div class="hero-media photo">
+      <span class="photo-fallback hero-fallback">图片待替换<em>assets/imported/doc-42.jpeg</em></span>
+      <img src="assets/imported/doc-42.jpeg" alt="大连滨海港口景观" onerror="this.style.display='none'" />
+      <div class="hero-mask"></div>
+    </div>
+    <div class="hero-content container">
+      <p class="hero-kicker"><span class="dot"></span> 大连 · 中国近代史的城市缩影 <span class="dot"></span></p>
+      <h1 class="hero-title">滨城烽火<br /><em class="accent">红色大连</em></h1>
+      <p class="hero-sub">从旅顺口的烽烟到工人运动的星火，这座滨海城市的每一次潮起潮落，都铭刻着不屈与新生。</p>
+      <div class="hero-slogan">📖 红色足迹研学护照 · 走过的每一步，都是历史的注脚</div>
+      <div class="hero-actions">
+        <a href="#route" class="btn btn-accent">开启导览路线</a>
+        <a href="#passport" class="btn btn-passport">领取研学护照</a>
+        <a href="#timeline" class="btn btn-ghost">回望历史瞬间</a>
+      </div>
+    </div>
+    <a href="#route" class="hero-scroll" aria-label="向下滚动">
+      <span class="scroll-line"><span></span></span>
+      <span>向下探索</span>
+    </a>
+  </section>
+
+  <!-- ======= 推荐导览路线 ======= -->
+  <section class="route" id="route">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">01 · 推荐导览路线</p>
+        <h2 class="section-title">一条不绕圈的<span class="accent">红色足迹</span></h2>
+        <p class="section-lead">默认起点：大连站（市中心主要交通枢纽）。按地理动线排序，避免来回折返。</p>
+        <p class="section-note">RECOMMENDED ROUTE</p>
+      </div>
+
+      <div class="route-tabs">
+        <button class="route-tab active" data-panel="half">半日精华版<span class="tab-time">约 4.5 小时 · 旅顺线</span></button>
+        <button class="route-tab" data-panel="full">全日深度版<span class="tab-time">约 8.5 小时 · 全域线</span></button>
+      </div>
+
+      <!-- 半日精华版 -->
+      <div class="route-panel active" id="panel-half">
+        <div class="route-timeline">
+          <div class="route-line"></div>
+
+          <div class="route-stop">
+            <div class="route-stop-num">起</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">大连站（集合出发）</span>
+                <span class="route-stop-duration">约 1 小时交通</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚇 地铁1号线 → 河口站换乘12号线 → 旅顺站</span>
+                <span>💰 票价约 7 元</span>
+              </div>
+              <p class="route-stop-desc">12号线沿途经塔河湾段，可欣赏黄海海景。也可在站北广场乘2002路公交（约1.5小时）。</p>
+            </div>
+          </div>
+
+          <div class="route-stop">
+            <div class="route-stop-num">1</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">万忠墓纪念馆</span>
+                <span class="route-stop-duration">建议停留 40 分钟</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚶 旅顺站步行约 10 分钟（近旅顺汽车站）</span>
+                <span>📍 九三路23号</span>
+              </div>
+              <p class="route-stop-desc">第一站从民族悲怆启程。1894年甲午旅顺大屠杀，约2万同胞遇难，仅36名埋尸者幸存。</p>
+            </div>
+          </div>
+
+          <div class="route-stop">
+            <div class="route-stop-num">2</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">旅顺日俄监狱旧址</span>
+                <span class="route-stop-duration">建议停留 1 小时</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚕 打车约 5 分钟 / 🚶 步行约 25 分钟（约2公里）</span>
+                <span>📍 向阳街139号</span>
+              </div>
+              <p class="route-stop-desc">1902年沙俄始建、1907年日本扩建，275间牢房可关押2000余人。朝鲜义士安重根曾被囚于此。</p>
+            </div>
+          </div>
+
+          <div class="route-stop">
+            <div class="route-stop-num">3</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">旅顺苏军烈士陵园</span>
+                <span class="route-stop-duration">建议停留 40 分钟</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚶 步行约 33 分钟（2.5公里）/ 🚕 打车约 8 分钟</span>
+                <span>📍 水师营街道三里桥</span>
+              </div>
+              <p class="route-stop-desc">中国最大的外籍公墓，1323座墓碑安葬着1945年解放东北牺牲的苏军将士。北邻八一烈士陵园。</p>
+            </div>
+          </div>
+
+          <div class="route-stop end">
+            <div class="route-stop-num">终</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">返程 · 旅顺站 → 大连站</span>
+                <span class="route-stop-duration">约 1 小时</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚇 地铁12号线 → 河口换乘1号线 → 大连站</span>
+              </div>
+              <p class="route-stop-desc">完成旅顺红色三部曲，在返程地铁上整理研学笔记。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-summary">
+          <div class="route-summary-item"><div class="num">3</div><div class="label">红色地标</div></div>
+          <div class="route-summary-item"><div class="num">4.5h</div><div class="label">总时长（含交通）</div></div>
+          <div class="route-summary-item"><div class="num">≈2km</div><div class="label">区内步行合计</div></div>
+          <div class="route-summary-item"><div class="num">免费</div><div class="label">纪念馆均免门票</div></div>
+        </div>
+        <p class="route-note">* 各纪念馆周一通常闭馆，建议提前确认开放时间；夏季开放时间 9:00–16:30。</p>
+      </div>
+
+      <!-- 全日深度版 -->
+      <div class="route-panel" id="panel-full">
+        <div class="route-timeline">
+          <div class="route-line"></div>
+
+          <div class="route-stop">
+            <div class="route-stop-num">起</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">大连站（集合出发）</span>
+                <span class="route-stop-duration">08:30 出发</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚇 地铁2号线 → 西安路站</span>
+                <span>⏱ 约 15 分钟</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-stop">
+            <div class="route-stop-num">1</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">大连中华工学会旧址</span>
+                <span class="route-stop-duration">建议停留 1 小时</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚶 西安路站A口步行 250 米</span>
+                <span>📍 沙河口区黄河路658号</span>
+              </div>
+              <p class="route-stop-desc">1923年12月2日成立，东北第一个中共领导的工会组织。傅景阳等进步青年从这栋小红楼走出。</p>
+            </div>
+          </div>
+
+          <div class="route-stop">
+            <div class="route-stop-num">2</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">大连市烈士陵园</span>
+                <span class="route-stop-duration">建议停留 40 分钟</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚇 地铁1号线（河口方向）→ 龙王塘站附近</span>
+                <span>📍 高新园区思亲路68号</span>
+              </div>
+              <p class="route-stop-desc">2015年建成，占地7.75万㎡，安葬500余位英烈。担负关向应、金伯阳等全市英烈事迹宣传。顺路南下旅顺的必经之站。</p>
+            </div>
+          </div>
+
+          <div class="route-stop">
+            <div class="route-stop-num">3</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">万忠墓纪念馆</span>
+                <span class="route-stop-duration">建议停留 40 分钟</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚇 继续12号线至旅顺站 → 步行10分钟</span>
+                <span>🍽 附近可安排午餐</span>
+              </div>
+              <p class="route-stop-desc">1894年11月21日–24日，四天三夜的旅顺大屠杀。日本外相陆奥宗光在《蹇蹇录》中亲口承认全城仅36人幸存。</p>
+            </div>
+          </div>
+
+          <div class="route-stop">
+            <div class="route-stop-num">4</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">旅顺日俄监狱旧址</span>
+                <span class="route-stop-duration">建议停留 1 小时</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚕 打车约 5 分钟</span>
+                <span>📍 向阳街139号</span>
+              </div>
+              <p class="route-stop-desc">"大"字形放射布局牢房、2.4㎡黑牢、双层绞刑室——这里是殖民统治的活化石，也是爱国志士不屈的见证。</p>
+            </div>
+          </div>
+
+          <div class="route-stop">
+            <div class="route-stop-num">5</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">旅顺苏军烈士陵园</span>
+                <span class="route-stop-duration">建议停留 40 分钟</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚶 步行约 33 分钟 / 🚕 打车约 8 分钟</span>
+                <span>📍 水师营街道三里桥</span>
+              </div>
+              <p class="route-stop-desc">1945年8月22日旅大解放，结束日本40年殖民。1323座苏军墓碑，部分镶嵌飞机、铁锚、坦克标志兵种。</p>
+            </div>
+          </div>
+
+          <div class="route-stop end">
+            <div class="route-stop-num">终</div>
+            <div class="route-stop-card">
+              <div class="route-stop-head">
+                <span class="route-stop-name">返程 · 完成全域红色足迹</span>
+                <span class="route-stop-duration">约 17:00 返程</span>
+              </div>
+              <div class="route-stop-meta">
+                <span>🚇 旅顺站 → 12号线 → 河口 → 1号线 → 大连站</span>
+              </div>
+              <p class="route-stop-desc">集齐5枚打卡印章，生成个人红色研学报告。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-summary">
+          <div class="route-summary-item"><div class="num">5</div><div class="label">红色地标</div></div>
+          <div class="route-summary-item"><div class="num">8.5h</div><div class="label">总时长（含交通午餐）</div></div>
+          <div class="route-summary-item"><div class="num">1条</div><div class="label">不折返动线</div></div>
+          <div class="route-summary-item"><div class="num">免费</div><div class="label">纪念馆均免门票</div></div>
+        </div>
+        <p class="route-note">* 关向应纪念馆（金州区向应街道）位于大连北部，与旅顺方向相反，建议另择半日作为"北线延伸"单独前往。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 大连红色文化简介 ======= -->
+  <section class="intro" id="intro">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">02 · 文化简介</p>
+        <h2 class="section-title">蓝海之滨的<span class="accent">红色底色</span></h2>
+        <p class="section-note">CULTURAL INTRODUCTION</p>
+      </div>
+
+      <div class="intro-grid">
+        <div class="intro-media photo photo-lg">
+          <span class="photo-fallback">图片待替换<em>assets/imported/doc-05.png</em></span>
+          <img src="assets/imported/doc-05.png" alt="旅顺口海岸全景" onerror="this.style.display='none'" />
+        </div>
+        <div class="intro-text">
+          <p class="lead">大连地处辽东半岛最南端，三面环海，山海相依，是一座因港而兴、因海而美的百年城市。</p>
+          <p>近代以来，这里是列强觊觎与殖民争夺的最前沿，也是中国人民奋起抗争、走向新生的热土。从甲午年间的悲怆，到俄日殖民统治下的暗夜；从工人运动的星火，到解放黎明的凯歌——红色基因，早已融入这座城的每一片海、每一座山。</p>
+          <p>如今，旅顺口的历史遗迹、金州湾的革命故里与市区的地标旧址，共同构成一部立体的红色教科书。我们循着海风与钟声，将这片土地上值得被铭记的地点，一一向你展开。</p>
+        </div>
+      </div>
+
+      <div class="intro-stats">
+        <div class="stat-card"><div class="stat-num">6<span>大</span></div><div class="stat-label">代表性红色地标</div></div>
+        <div class="stat-card"><div class="stat-num">百<span>年</span></div><div class="stat-label">抗争与新生历程</div></div>
+        <div class="stat-card"><div class="stat-num">2<span>条</span></div><div class="stat-label">精选导览路线</div></div>
+        <div class="stat-card stat-accent"><div class="stat-num">1<span>本</span></div><div class="stat-label">红色足迹研学护照</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 红色文化地点卡片（深化版） ======= -->
+  <section class="sites" id="sites">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">03 · 红色地标</p>
+        <h2 class="section-title">值得停驻的<span class="accent">六处地标</span></h2>
+        <p class="section-lead">每一处地点，都是一段可以亲身丈量的历史。卡片内含史实与故事，附研学任务卡。</p>
+      </div>
+
+      <div class="site-grid">
+<!-- 01 旅顺日俄监狱旧址 -->
+        <article class="site-card">
+          <div class="site-img photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-23.png</em></span>
+            <img src="assets/imported/doc-23.png" alt="旅顺日俄监狱旧址" onerror="this.style.display='none'" />
+            <span class="site-tag">近代 · 遗迹</span>
+          </div>
+          <div class="site-body">
+            <h3>旅顺日俄监狱旧址</h3>
+            <p class="site-area">旅顺口区 · 向阳街139号</p>
+            <p class="site-desc">一座占地宏大的殖民监狱，曾禁锢无数爱国志士，是东北近代屈辱与抗争的鲜活教材。</p>
+            <div class="site-card-deep">
+              <p><span class="fact-tag history">史实</span>1902年沙俄始建，1904年因日俄战争停工；1907年日本扩建并使用至1945年。围墙内占地2.6万㎡，牢房275间，可同时关押2000余人，另有刑讯室、绞刑室和15座工场。</p>
+              <p><span class="fact-tag story">故事</span>建筑群呈"大"字形放射布局，看守站在中心即可监视所有牢房。绞刑室分两层，上层行刑、下层尸体直接落入木桶。朝鲜义士安重根刺杀伊藤博文后曾被囚于此。最后一名亲历者、共产党员黄铁城于2004年过世。</p>
+              <p><span class="fact-tag today">今天</span>全国重点文物保护单位、爱国主义教育基地。走进那间仅2.4㎡的黑牢，想象没有光的日子——这是任何书本都给不了的体感。</p>
+              <span class="site-task-badge">🎫 研学任务：找到"大"字形牢房的中心观察点</span>
+            </div>
+            <a href="#featured" class="site-link">探寻背后故事 <span>→</span></a>
+            <button class="checkin-btn" data-site="prison" data-name="旅顺日俄监狱旧址">📍 打卡</button>
+          </div>
+        </article>
+
+        <!-- 02 万忠墓纪念馆 -->
+        <article class="site-card">
+          <div class="site-img photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-12.png</em></span>
+            <img src="assets/imported/doc-12.png" alt="万忠墓纪念馆纪念碑" onerror="this.style.display='none'" />
+            <span class="site-tag">甲午 · 纪念</span>
+          </div>
+          <div class="site-body">
+            <h3>万忠墓纪念馆</h3>
+            <p class="site-area">旅顺口区 · 九三路23号</p>
+            <p class="site-desc">为纪念甲午战争旅顺殉难同胞而建，苍苍忠骨，诉说着不能遗忘的悲怆与尊严。</p>
+            <div class="site-card-deep">
+              <p><span class="fact-tag history">史实</span>1894年11月21日，日军攻陷旅顺，对平民进行持续四天三夜的屠杀，约2万同胞遇难。日本外相陆奥宗光在回忆录《蹇蹇录》中承认："此时得免杀戮之华人，全市内仅三十有六人耳"——这36人是被强迫掩埋尸体的扛尸队。</p>
+              <p><span class="fact-tag story">故事</span>日军为掩人耳目，驱使幸存者组成扛尸队，将尸体集中焚烧后骨灰葬于白玉山东麓。比南京大屠杀早43年的旅顺惨案，是近代日军侵华的第一笔血债。随军记者龟井兹明拍摄的照片，至今仍是铁证。</p>
+              <p><span class="fact-tag today">今天</span>纪念馆前的纪念碑上，"万忠墓"三字沉甸甸的。站在这里，风从白玉山吹来，你会明白"铭记"不是一句口号。</p>
+              <span class="site-task-badge">🎫 研学任务：记录纪念馆中一件最触动你的展品</span>
+            </div>
+            <a href="#featured" class="site-link">看更多故事 <span>→</span></a>
+            <button class="checkin-btn" data-site="wanzhongmu" data-name="万忠墓纪念馆">📍 打卡</button>
+          </div>
+        </article>
+
+        <!-- 03 大连中华工学会旧址 -->
+        <article class="site-card">
+          <div class="site-img photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-31.png</em></span>
+            <img src="assets/imported/doc-31.png" alt="大连中华工学会旧址" onerror="this.style.display='none'" />
+            <span class="site-tag">工运 · 旧址</span>
+          </div>
+          <div class="site-body">
+            <h3>大连中华工学会旧址</h3>
+            <p class="site-area">沙河口区 · 黄河路658号</p>
+            <p class="site-desc">中国共产党早期大连工人运动的重要据点，中国工运史上的一座精神丰碑。</p>
+            <div class="site-card-deep">
+              <p><span class="fact-tag history">史实</span>1923年12月2日，"满铁"沙河口工场青年工人傅景阳、王立功、唐宏经等30余人，在沙河口黄金町107号（今黄河路658号）成立"沙河口工场华人工学会"，后改名"大连中华工学会"。这是大连地区最早的工会组织，也是东北地区第一个直接受中国共产党领导的工会。</p>
+              <p><span class="fact-tag story">故事</span>成立大会上，"劳工神圣"的牌匾被郑重竖起。工学会设文牍、夜校、讲演、体育、娱乐、救济、交际七个部，工人白天在工场做工，晚上来夜校读书。从这栋小红楼里，走出了大连第一位共产党员傅景阳、第一位共青团员，还走出了中共满洲省委第一任书记。</p>
+              <p><span class="fact-tag today">今天</span>1963年列为省级文物保护单位。西安路商圈的喧嚣中，这栋二层红砖小楼静静伫立——地铁1、2号线西安路站A口出来，步行250米就到。</p>
+              <span class="site-task-badge">🎫 研学任务：在旧址前朗读一段"劳工神圣"的宣言</span>
+            </div>
+            <a href="#featured" class="site-link">看更多故事 <span>→</span></a>
+            <button class="checkin-btn" data-site="gongxuehui" data-name="大连中华工学会旧址">📍 打卡</button>
+          </div>
+        </article>
+
+        <!-- 04 大连市烈士陵园 -->
+        <article class="site-card">
+          <div class="site-img photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-22.png</em></span>
+            <img src="assets/imported/doc-22.png" alt="大连市烈士陵园" onerror="this.style.display='none'" />
+            <span class="site-tag">英烈 · 纪念</span>
+          </div>
+          <div class="site-body">
+            <h3>大连市烈士陵园</h3>
+            <p class="site-area">高新园区 · 思亲路68号</p>
+            <p class="site-desc">苍松翠柏间安卧着为人民解放献身的英烈，是这座城市最庄重的爱国主义课堂。</p>
+            <div class="site-card-deep">
+              <p><span class="fact-tag history">史实</span>2013年9月开工，2015年8月建成投入使用，占地7.75万㎡。园内安葬500余位烈士，涵盖甲午战争、抗日战争、解放战争、抗美援朝等不同时期。担负关向应、金伯阳等全市英烈事迹宣传与褒扬职能。</p>
+              <p><span class="fact-tag story">故事</span>陵园东西依山、南望黄海、北邻旅顺南路，是市区前往旅顺的必经之地。建成后，市内零散烈士墓被集中整合搬迁至此，每一座墓碑都有了归宿。烈士纪念馆建筑面积2432㎡，一件件遗物、一张张照片，把抽象的"牺牲"变成了具体的人。</p>
+              <p><span class="fact-tag today">今天</span>辽宁省级爱国主义教育基地。从市区坐地铁1号线南下，在龙王塘站下车步行可达——把它安排在去旅顺的路上，顺路致敬，不必折返。</p>
+              <span class="site-task-badge">🎫 研学任务：在纪念广场前默哀一分钟</span>
+            </div>
+            <a href="#featured" class="site-link">看更多故事 <span>→</span></a>
+            <button class="checkin-btn" data-site="lieshilingyuan" data-name="大连市烈士陵园">📍 打卡</button>
+          </div>
+        </article>
+
+        <!-- 05 旅顺苏军烈士陵园 -->
+        <article class="site-card">
+          <div class="site-img photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-14.png</em></span>
+            <img src="assets/imported/doc-14.png" alt="旅顺苏军烈士陵园纪念塔" onerror="this.style.display='none'" />
+            <span class="site-tag">解放 · 纪念</span>
+          </div>
+          <div class="site-body">
+            <h3>旅顺苏军烈士陵园</h3>
+            <p class="site-area">旅顺口区 · 水师营三里桥</p>
+            <p class="site-desc">纪念为解放大连而牺牲的苏联红军将士，异国的橄榄静卧山麓，见证胜利来之不易。</p>
+            <div class="site-card-deep">
+              <p><span class="fact-tag history">史实</span>1945年8月9日，苏联发起"八月风暴行动"对日宣战，百万苏军挺进东北。8月22日，苏军空降部队进驻旅顺、大连，旅大地区结束日本长达40年的殖民统治。陵园在原沙俄公墓基础上扩建，占地4.8万㎡，是中国最大的外籍公墓，现存葬墓1323座。</p>
+              <p><span class="fact-tag story">故事</span>部分墓碑上镶嵌着飞机、铁锚、坦克的模型，标识着墓主人生前的兵种。1955年苏军撤离旅顺前，在陵园中心修建纪念塔，塔身用中俄两国文字刻着："为苏中两国人民的自由和幸福而光荣牺牲的烈士们永垂不朽！"苏联红军出兵东北24天，伤亡3.2万人，其中一部分就长眠在这里。</p>
+              <p><span class="fact-tag today">今天</span>北邻旅顺八一烈士陵园（安葬金伯阳烈士衣冠冢等372名烈士）。反法西斯战争不是一个国家的战斗——站在这些异国墓碑前，你会读懂"人类命运共同体"最初的含义。</p>
+              <span class="site-task-badge">🎫 研学任务：找到纪念塔上的中俄双语碑文</span>
+            </div>
+            <a href="#featured" class="site-link">看更多故事 <span>→</span></a>
+            <button class="checkin-btn" data-site="sujun" data-name="旅顺苏军烈士陵园">📍 打卡</button>
+          </div>
+        </article>
+
+        <!-- 06 关向应纪念馆 -->
+        <article class="site-card">
+          <div class="site-img photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-35.png</em></span>
+            <img src="assets/imported/doc-35.png" alt="关向应纪念馆" onerror="this.style.display='none'" />
+            <span class="site-tag">金州 · 故里</span>
+          </div>
+          <div class="site-body">
+            <h3>关向应纪念馆</h3>
+            <p class="site-area">金州区 · 向应街道大关屯</p>
+            <p class="site-desc">无产阶级革命家关向应的故里故居，青砖黛瓦间，走出了一位大道不孤的赤子。</p>
+            <div class="site-card-deep">
+              <p><span class="fact-tag history">史实</span>关向应，1902年9月10日出生于金县大关家屯（今金州区向应街道），满族瓜尔佳氏。1924年加入中国社会主义青年团，1925年加入中国共产党。中共六大、七大中央委员。与贺龙长期搭档，长征中任红二方面军政委，抗战时任八路军120师政委，开辟晋绥抗日根据地。1946年7月21日因肺结核在延安病逝，年仅44岁。</p>
+              <p><span class="fact-tag story">故事</span>主展馆展厅上方镶嵌着44颗红五星，象征他44年短暂而炽烈的一生。1920年他在大连伏见台公学堂商科读书时开始接触新思想，从辽东半岛的农家子弟成长为红军和八路军的高级指挥员。临终遗信中写道："相信我们的党和中国革命是一定要得到最后胜利的。"毛泽东写下挽词："忠心耿耿，为党为国，向应同志不死。"</p>
+              <p><span class="fact-tag today">今天</span>他是辽宁省民主革命时期在我党我军担任最高职务的领导人。纪念馆位于其出生地，建议作为"北线延伸"单独安排半日——从大连市区出发约1小时车程。</p>
+              <span class="site-task-badge">🎫 研学任务：数清展厅上方的44颗红五星</span>
+            </div>
+            <a href="#featured" class="site-link">看更多故事 <span>→</span></a>
+            <button class="checkin-btn" data-site="guanxiangying" data-name="关向应纪念馆">📍 打卡</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 红色足迹研学护照（创新概念模块） ======= -->
+  <section class="passport" id="passport">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">04 · 创新概念</p>
+        <h2 class="section-title">红色足迹<span class="accent">研学护照</span></h2>
+        <p class="section-lead">不只是信息展示——这是一本可以带着走、盖着章、生成报告的线上研学工具。</p>
+        <p class="section-note">RED FOOTPRINT PASSPORT</p>
+      </div>
+
+      <div class="passport-concept">
+        <h3>核心创意：为什么用这个网站，而不是搜百度？</h3>
+        <p>百度给你词条，我们给你<strong style="color:var(--gold)">"路线 + 任务 + 打卡 + 报告"</strong>的完整体验。每到一处地标，完成研学任务卡，盖上一枚电子印章；走完路线，自动生成属于你的《大连红色研学报告》，可分享、可打印、可作为思政课实践证明。这不是百科，这是你的红色足迹。</p>
+      </div>
+
+      <div class="passport-flow">
+        <div class="passport-step">
+          <div class="passport-step-icon">🗺</div>
+          <h4>选路线</h4>
+          <p>半日精华或全日深度，按地理动线规划，不绕圈、不折返。</p>
+        </div>
+        <div class="passport-step">
+          <div class="passport-step-icon">📍</div>
+          <h4>实地打卡</h4>
+          <p>到达地标后完成研学任务卡，记录你的观察与思考。</p>
+        </div>
+        <div class="passport-step">
+          <div class="passport-step-icon">🔖</div>
+          <h4>收集印章</h4>
+          <p>每处地标一枚专属电子印章，集齐6枚解锁"红色足迹达人"。</p>
+        </div>
+        <div class="passport-step">
+          <div class="passport-step-icon">📜</div>
+          <h4>生成报告</h4>
+          <p>自动汇总打卡记录、研学笔记，生成可分享的个人研学报告与证书。</p>
+        </div>
+      </div>
+
+      <div class="passport-cta">
+        <a href="#route" class="btn">立即开启我的红色足迹 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 城市记忆 · 图文交错 ======= -->
+  <section class="featured" id="featured">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">05 · 城市记忆</p>
+        <h2 class="section-title">三段<span class="accent">可丈量的记忆</span></h2>
+        <p class="section-lead">从旅顺的炮台到市区的工坊，再到解放的黎明，用图文交错的方式，走进大连红色岁月的脉络。</p>
+      </div>
+
+      <div class="featured-list">
+<!-- row 1 · 左图右文 -->
+        <article class="feat-row">
+          <div class="feat-media photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-01.png</em></span>
+            <img src="assets/imported/doc-01.png" alt="旅顺炮台与工事遗址群" onerror="this.style.display='none'" />
+          </div>
+          <div class="feat-text">
+            <p class="feat-index">记忆 · 甲午与殖民</p>
+            <h3>旅顺：一座城市的屈辱与觉醒</h3>
+            <p>1894年，旅顺湾的那场劫难，让这座扼守渤海的军港蒙上了沉痛的阴影；此后俄日相继的殖民统治，更让旅顺反复易手。古老的港口、斑驳的炮台与静默的墓园，共同讲述着那段黑暗中的坚守。</p>
+            <ul class="feat-points">
+              <li>炮台与工事遗址群</li>
+              <li>日俄监狱旧址见证囚与守</li>
+              <li>万忠墓前，一场民族悲怆</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- row 2 · 右图左文 -->
+        <article class="feat-row">
+          <div class="feat-text">
+            <p class="feat-index">记忆 · 工人运动</p>
+            <h3>工人运动的星火：产业之城的脊梁</h3>
+            <p>作为近代中国北方重要的港口与工业城市，大连的码头与工厂里聚集了大批产业工人。从中华工学学会的成立到码头罢潮的呐喊，工人阶级以坚强的意志，点亮了这座沿海城市的晨光。</p>
+            <ul class="feat-points">
+              <li>中华工学会旧址的纸笔与旗帜</li>
+              <li>码头里，每一次抗争都是呐喊</li>
+              <li>工人夜校：催生一代觉醒的课堂</li>
+            </ul>
+          </div>
+          <div class="feat-media photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-04.png</em></span>
+            <img src="assets/imported/doc-04.png" alt="大连/旅顺港口景观" onerror="this.style.display='none'" />
+          </div>
+        </article>
+
+        <!-- row 3 · 左图右文 -->
+        <article class="feat-row">
+          <div class="feat-media photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-43.jpeg</em></span>
+            <img src="assets/imported/doc-43.jpeg" alt="大连星海湾滨海景观" onerror="this.style.display='none'" />
+          </div>
+          <div class="feat-text">
+            <p class="feat-index">记忆 · 解放与新生</p>
+            <h3>从解放到新生：面向渤海的红色印记</h3>
+            <p>1945年，随着抗战胜利与大连光复，这座吹着海风的城市迎来了新生。此后，作为解放区的重要港口与后方基地，大连源源不断地支援着全国的解放，用一次次转身书写新的篇章。</p>
+            <ul class="feat-points">
+              <li>苏军陵园长眠着异国英雄</li>
+              <li>港口装卸间，支前从未停歇</li>
+              <li>烈士英灵长守，铭记后来人</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 高校红色研学合作 ======= -->
+  <section class="campus" id="campus">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">06 · 高校研学合作</p>
+        <h2 class="section-title">让红色足迹成为<span class="accent">思政课堂</span></h2>
+        <p class="section-lead">面向高校社团、思政课、暑期实践团队，提供团体预约、课程包、成果展示与团队排行。</p>
+        <p class="section-note">CAMPUS COOPERATION</p>
+      </div>
+
+      <div class="campus-grid">
+        <div class="campus-intro">
+          <h3>四种合作形式，让研学落地</h3>
+          <p>本站不仅是游客的导览工具，更是高校开展红色研学实践的线上平台。团队可创建专属研学小组，统一规划路线、分配任务、汇总成果。</p>
+
+          <div class="campus-features">
+            <div class="campus-feature">
+              <div class="campus-feature-icon">👥</div>
+              <div>
+                <h4>团体预约与定制路线</h4>
+                <p>提交团队信息后，可根据人数、时长、主题定制专属研学路线，支持半日/全日/多日方案。</p>
+              </div>
+            </div>
+            <div class="campus-feature">
+              <div class="campus-feature-icon">📚</div>
+              <div>
+                <h4>研学课程包</h4>
+                <p>每处地标配套课前阅读材料、现场任务卡、课后思考题，可直接用于思政课实践教学环节。</p>
+              </div>
+            </div>
+            <div class="campus-feature">
+              <div class="campus-feature-icon">🏆</div>
+              <div>
+                <h4>团队打卡排行榜</h4>
+                <p>各高校团队完成打卡后自动积分排行，按完成度、任务质量、报告深度综合评分，激发团队活力。</p>
+              </div>
+            </div>
+            <div class="campus-feature">
+              <div class="campus-feature-icon">🖼</div>
+              <div>
+                <h4>实践成果展示与分享海报</h4>
+                <p>优秀研学报告、摄影作品、心得体会可在本站展示；一键生成团队研学海报，支持社交平台传播。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="campus-ranking">
+            <h4>🔥 本周高校研学团队排行榜（示例）</h4>
+            <div class="ranking-list">
+              <div class="ranking-item">
+                <div class="ranking-rank">1</div>
+                <div class="ranking-name">大连理工大学 · 马克思主义学院实践团</div>
+                <div class="ranking-score">986 <small>积分</small></div>
+              </div>
+              <div class="ranking-item">
+                <div class="ranking-rank">2</div>
+                <div class="ranking-name">辽宁师范大学 · 思政课研学小组</div>
+                <div class="ranking-score">942 <small>积分</small></div>
+              </div>
+              <div class="ranking-item">
+                <div class="ranking-rank">3</div>
+                <div class="ranking-name">大连海事大学 · 青年马克思主义者培养工程</div>
+                <div class="ranking-score">915 <small>积分</small></div>
+              </div>
+              <div class="ranking-item">
+                <div class="ranking-rank">4</div>
+                <div class="ranking-name">东北财经大学 · 暑期社会实践队</div>
+                <div class="ranking-score">878 <small>积分</small></div>
+              </div>
+              <div class="ranking-item">
+                <div class="ranking-rank">5</div>
+                <div class="ranking-name">大连大学 · 红色足迹寻访团</div>
+                <div class="ranking-score">853 <small>积分</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <h3>高校团队招募入口</h3>
+          <p class="campus-sub">填写以下信息，我们将在1个工作日内与您联系，定制专属研学方案。</p>
+          <form onsubmit="event.preventDefault(); alert('感谢提交！我们将尽快与您联系。（本表单为展示用，暂未接入后端）');">
+            <div class="campus-form-group">
+              <label>学校 / 学院名称</label>
+              <input type="text" placeholder="例如：大连理工大学马克思主义学院" />
+            </div>
+            <div class="campus-form-group">
+              <label>团队类型</label>
+              <select>
+                <option>思政课实践教学</option>
+                <option>暑期社会实践团队</option>
+                <option>学生社团 / 党团组织</option>
+                <option>青年马克思主义者培养工程</option>
+                <option>其他</option>
+              </select>
+            </div>
+            <div class="campus-form-group">
+              <label>团队人数</label>
+              <input type="number" placeholder="例如：30" min="1" />
+            </div>
+            <div class="campus-form-group">
+              <label>预计出行时间</label>
+              <input type="text" placeholder="例如：2026年10月中旬" />
+            </div>
+            <div class="campus-form-group">
+              <label>联系人 / 联系方式</label>
+              <input type="text" placeholder="姓名 + 手机号 / 邮箱" />
+            </div>
+            <div class="campus-form-group">
+              <label>特殊需求（选填）</label>
+              <textarea rows="3" placeholder="例如：需要讲解员、希望结合特定主题、需开具实践证明等"></textarea>
+            </div>
+            <button type="submit" class="campus-submit">提交研学合作申请</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 历史时间线 ======= -->
+  <section class="timeline" id="timeline">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">07 · 历史时间线</p>
+        <h2 class="section-title">大连红色<span class="accent">脉络</span></h2>
+        <p class="section-lead">跟着潮水走过一个多世纪，翻阅这座城市沉痛而坚定的来时路。</p>
+      </div>
+
+      <div class="tl">
+        <div class="tl-line" aria-hidden="true"></div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1894</div>
+          <div class="tl-card"><h4>甲午战争 · 旅顺劫难</h4><p>11月21日日军攻陷旅顺，四天三夜屠杀约2万平民，仅36名埋尸者幸存。万忠墓埋忠骨，成为近代民族悲怆中最沉痛的一页。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1898–1905</div>
+          <div class="tl-card"><h4>俄日殖民统治更迭</h4><p>1898年沙俄强租旅大，1902年始建旅顺监狱。1904年日俄战争爆发，1905年日本夺取旅大，此后殖民统治长达40年。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1923</div>
+          <div class="tl-card"><h4>工人运动兴起</h4><p>12月2日，傅景阳等在沙河口成立"华人工学会"（后改名大连中华工学会），东北第一个中共领导的工会组织诞生，工人阶级开始有组织地发出呐喊。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1937</div>
+          <div class="tl-card"><h4>全面抗战</h4><p>烽烟漫过山海，大连儿女以各种方式投身民族救亡，前赴后继、不屈不挠。旅顺监狱中，抗日志士以生命坚守信仰。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1945</div>
+          <div class="tl-card"><h4>大连光复</h4><p>8月9日苏联出兵东北，8月22日苏军进驻旅大，结束日本40年殖民统治。这座海港告别暗夜，迎来期盼已久的新生。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1946</div>
+          <div class="tl-card"><h4>关向应病逝</h4><p>7月21日，从大连金州走出去的无产阶级革命家、八路军120师政委关向应在延安病逝，年仅44岁。毛泽东挽词："忠心耿耿，为党为国，向应同志不死。"</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1946–1949</div>
+          <div class="tl-card"><h4>支前与解放</h4><p>作为解放区重要的港口后方，大连源源不断输送物资与力量，支援全国解放战争。港口装卸间，支前从未停歇。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1949</div>
+          <div class="tl-card"><h4>迈向新中国</h4><p>中华人民共和国成立，大连彻底走出阴霾，面向渤海，开启蓬勃建设的新篇章。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 关于本站 ======= -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-card">
+        <div class="about-flag" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M7 6.5 12 11l5-4.5M7 17.5l5-4.5 5 4.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div class="about-text">
+          <h3>铭记历史，是为了更好的前行</h3>
+          <p>本站为大连红色旅游文化地点的静态展示页，现已升级为"红色足迹研学导览"平台。所有内容仅用于文化整理与分享，供读者行走城市时回望来处；文中所述地点与史实依据公开资料整理，欢迎指正补充。</p>
+        </div>
+        <a href="#hero" class="btn btn-accent">回到首页 ↑</a>
+      </div>
+
+      <div class="pending-list">
+        <h4>⚠ 待核实史实清单</h4>
+        <ul>
+          <li>旅顺日俄监狱牢房数量：不同来源记为253间、256间、275间，本站采用275间（中新网及辽宁日报报道口径），建议以博物馆官方说明为准。</li>
+          <li>旅顺苏军烈士陵园葬墓数量：来源记为1323座与1408位两种说法，本站采用1323座（CCN传媒及大连图书馆资料），"1408位"出自央视《苏联红军在旅大》纪录片，可能含病故家属。</li>
+          <li>大连市烈士陵园安葬烈士数："500余位"来自抖音文旅资料，官方公开资料未明确精确数字，建议以陵园管理处公布数据为准。</li>
+          <li>关向应满族瓜尔佳氏：多家百科及党史资料记载其为满族、满姓瓜尔佳氏，但部分官方通稿未提及民族成分，建议以中央党史和文献研究院权威传记为准。</li>
+          <li>万忠墓纪念馆具体开放时间："夏季9:00–16:30"来自大连本地宝及旅游平台，实际开放时间可能随季节调整，建议出行前电话确认（0411-86612924）。</li>
+          <li>高校团队排行榜为功能示意数据，非真实排名；表单为前端展示，暂未接入后端系统。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 页脚 ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="brand invert"><span class="brand-mark">☉</span> 滨城烽火 · 红色大连</a>
+          <p class="footer-tagline">山海之间的红色记忆<br />一座滨海城市，半部近代史。<br />红色足迹研学护照 · 走过的每一步都是历史的注脚</p>
+        </div>
+        <nav class="footer-links" aria-label="页脚导航">
+          <a href="#route">导览路线</a>
+          <a href="#sites">红色地标</a>
+          <a href="#passport">研学护照</a>
+          <a href="#featured">城市记忆</a>
+          <a href="#campus">高校合作</a>
+          <a href="#timeline">历史时间线</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> 滨城烽火 · 红色大连 — 红色足迹研学导览平台</span>
+        <span class="footer-note">波浪与海 · 铭记于心</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // 导览路线 Tab 切换
+    document.querySelectorAll('.route-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = this.getAttribute('data-panel');
+        document.querySelectorAll('.route-tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelectorAll('.route-panel').forEach(function(p) { p.classList.remove('active'); });
+        this.classList.add('active');
+        document.getElementById('panel-' + target).classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- ===== 新增：我的护照弹窗 ===== -->
+  <div class="passport-overlay" id="passportOverlay">
+    <div class="passport-modal">
+      <span class="passport-close" id="closePassport" title="关闭">✕</span>
+      <h3>我的红色研学护照</h3>
+      <p class="pm-sub">已打卡地标自动记录时间，可随时查看进度并生成研学报告。</p>
+      <div class="passport-progress-head"><span>研学进度</span><span id="progressText">0 / 6</span></div>
+      <div class="passport-progress"><div class="passport-progress-fill" id="progressFill"></div></div>
+      <div class="passport-list-title">打卡记录</div>
+      <div class="passport-list" id="passportList"></div>
+      <button class="gen-report" id="genReport">📄 生成研学报告（PDF）</button>
+      <p class="passport-tip">报告将自动截取当前打卡状态并生成 PDF 下载</p>
+    </div>
+  </div>
+
+  <!-- 报告渲染区（离屏，供截图生成 PDF） -->
+  <div class="report-stage" id="reportStage"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    (function(){
+      var SITES = [
+        { key: 'prison', name: '旅顺日俄监狱旧址' },
+        { key: 'wanzhongmu', name: '万忠墓纪念馆' },
+        { key: 'gongxuehui', name: '大连中华工学会旧址' },
+        { key: 'lieshilingyuan', name: '大连市烈士陵园' },
+        { key: 'sujun', name: '旅顺苏军烈士陵园' },
+        { key: 'guanxiangying', name: '关向应纪念馆' }
+      ];
+      var STORE_KEY = 'dalian_red_checkins';
+
+      function loadCheckins() {
+        try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch(e) { return {}; }
+      }
+      function saveCheckins(data) {
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(data)); } catch(e) {}
+      }
+      function fmtTime(iso) {
+        var d = new Date(iso);
+        function p(n){ return n < 10 ? '0' + n : '' + n; }
+        return d.getFullYear() + '-' + p(d.getMonth()+1) + '-' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+      }
+      function dateStamp(){
+        var d = new Date();
+        function p(n){ return n < 10 ? '0' + n : '' + n; }
+        return '' + d.getFullYear() + p(d.getMonth()+1) + p(d.getDate()) + p(d.getHours()) + p(d.getMinutes());
+      }
+
+      // ---- 1. 打卡按钮 ----
+      function initButtons() {
+        var checkins = loadCheckins();
+        document.querySelectorAll('.checkin-btn').forEach(function(btn){
+          var key = btn.getAttribute('data-site');
+          if (checkins[key]) {
+            btn.classList.add('done'); btn.disabled = true;
+            btn.textContent = '✓ 已打卡 · ' + fmtTime(checkins[key].time);
+          }
+          btn.addEventListener('click', function(){
+            if (btn.disabled) return;
+            var now = new Date().toISOString();
+            checkins[key] = { name: btn.getAttribute('data-name'), time: now };
+            saveCheckins(checkins);
+            btn.classList.add('done'); btn.disabled = true;
+            btn.textContent = '✓ 已打卡 · ' + fmtTime(now);
+            renderPassport();
+          });
+        });
+      }
+
+      // ---- 2. 护照弹窗 ----
+      function renderPassport() {
+        var checkins = loadCheckins();
+        var doneCount = 0;
+        SITES.forEach(function(s){ if (checkins[s.key]) doneCount++; });
+        document.getElementById('progressText').textContent = doneCount + ' / ' + SITES.length;
+        document.getElementById('progressFill').style.width = (doneCount / SITES.length * 100) + '%';
+        var listEl = document.getElementById('passportList');
+        listEl.innerHTML = '';
+        SITES.forEach(function(s){
+          var item = document.createElement('div');
+          item.className = 'passport-item' + (checkins[s.key] ? ' checked' : '');
+          var st = document.createElement('span'); st.className = 'pi-status';
+          var nm = document.createElement('span'); nm.className = 'pi-name'; nm.textContent = s.name;
+          var tm = document.createElement('span'); tm.className = 'pi-time';
+          tm.textContent = checkins[s.key] ? fmtTime(checkins[s.key].time) : '未打卡';
+          item.appendChild(st); item.appendChild(nm); item.appendChild(tm);
+          listEl.appendChild(item);
+        });
+      }
+
+      var overlay = document.getElementById('passportOverlay');
+      document.getElementById('openPassport').addEventListener('click', function(e){
+        e.preventDefault();
+        renderPassport();
+        overlay.classList.add('open');
+      });
+      document.getElementById('closePassport').addEventListener('click', function(){
+        overlay.classList.remove('open');
+      });
+      overlay.addEventListener('click', function(e){
+        if (e.target === overlay) overlay.classList.remove('open');
+      });
+
+      // ---- 3. 生成报告 ----
+      function buildReportStage() {
+        var checkins = loadCheckins();
+        var doneCount = 0;
+        SITES.forEach(function(s){ if (checkins[s.key]) doneCount++; });
+        var today = new Date();
+        function p(n){ return n < 10 ? '0' + n : '' + n; }
+        var dateStr = today.getFullYear() + '-' + p(today.getMonth()+1) + '-' + p(today.getDate());
+        var rows = SITES.map(function(s){
+          return '<div class="rs-row ' + (checkins[s.key] ? 'done' : '') + '"><span class="rs-dot"></span><span class="rs-name">' + s.name + '</span><span class="rs-time">' + (checkins[s.key] ? fmtTime(checkins[s.key].time) : '未打卡') + '</span></div>';
+        }).join('');
+        document.getElementById('reportStage').innerHTML =
+          '<h1>我的红色研学报告</h1>' +
+          '<div class="rs-sub">滨城烽火 · 红色大连 — 红色足迹研学护照 · 生成日期：' + dateStr + '</div>' +
+          '<div class="rs-banner"><h2>红色足迹研学进度 ' + doneCount + ' / ' + SITES.length + '</h2><p>走过的每一步，都是历史的注脚。</p></div>' +
+          '<div class="rs-section"><h3>地标打卡记录</h3>' + rows + '</div>' +
+          '<div class="rs-section"><h3>研学感悟</h3><p style="font-size:14px;color:#666;line-height:1.8;">从旅顺口的烽烟到工人运动的星火，这座滨海城市的每一次潮起潮落，都铭刻着不屈与新生。红色基因，早已融入这座城的每一片海、每一座山。</p></div>' +
+          '<div class="rs-meta">本报告由「滨城烽火 · 红色大连」自动生成 · 内容依据公开史实资料整理</div>';
+      }
+
+      document.getElementById('genReport').addEventListener('click', function(){
+        var btn = this;
+        btn.disabled = true;
+        btn.textContent = '正在生成…';
+        buildReportStage();
+        setTimeout(function(){
+          try {
+            if (typeof html2canvas === 'undefined' || typeof window.jspdf === 'undefined') {
+              alert('报告生成组件未加载成功，请联网后重试。');
+              btn.disabled = false; btn.textContent = '📄 生成研学报告（PDF）';
+              return;
+            }
+            var stage = document.getElementById('reportStage');
+            html2canvas(stage, { scale: 2, backgroundColor: '#ffffff' }).then(function(canvas){
+              var imgData = canvas.toDataURL('image/jpeg', 0.92);
+              var pdf = new window.jspdf.jsPDF('p', 'mm', 'a4');
+              var pageW = 210, pageH = 297, margin = 12;
+              var imgW = pageW;
+              var imgH = canvas.height * imgW / canvas.width;
+              var usable = pageH - margin;
+              pdf.addImage(imgData, 'JPEG', 0, margin, imgW, imgH);
+              var heightLeft = imgH - usable;
+              while (heightLeft > 0) {
+                pdf.addPage();
+                pdf.addImage(imgData, 'JPEG', 0, margin - (imgH - heightLeft), imgW, imgH);
+                heightLeft -= usable;
+              }
+              pdf.save('红色研学报告_' + dateStamp() + '.pdf');
+              btn.disabled = false; btn.textContent = '📄 生成研学报告（PDF）';
+            });
+          } catch(err) {
+            alert('生成失败：' + err.message);
+            btn.disabled = false; btn.textContent = '📄 生成研学报告（PDF）';
+          }
+        }, 200);
+      });
+
+      initButtons();
+      renderPassport();
+    })();
+  </script>
+</body>
+</html>
