@@ -1,0 +1,55 @@
+﻿manifest - pictures extracted from references/picture.docx (word/media/)
+export dir : assets/imported/
+
+No.  file          source image   size(bytes)   format
+---  ------------  -------------  ------------  ------
+ 1.  doc-01.png    image1.png           105381  PNG
+ 2.  doc-02.png    image2.png           117598  PNG
+ 3.  doc-03.png    image3.png            62850  PNG
+ 4.  doc-04.png    image4.png            65065  PNG
+ 5.  doc-05.png    image5.png            52012  PNG
+ 6.  doc-06.png    image6.png           110397  PNG
+ 7.  doc-07.png    image7.png           151495  PNG
+ 8.  doc-08.png    image8.png           157698  PNG
+ 9.  doc-09.png    image9.png           138526  PNG
+10.  doc-10.png    image10.png          150897  PNG
+11.  doc-11.png    image11.png          157821  PNG
+12.  doc-12.png    image12.png           92156  PNG
+13.  doc-13.png    image13.png          129426  PNG
+14.  doc-14.png    image14.png           51305  PNG
+15.  doc-15.png    image15.png           75382  PNG
+16.  doc-16.png    image16.png           82893  PNG
+17.  doc-17.png    image17.png          109249  PNG
+18.  doc-18.png    image18.png           97835  PNG
+19.  doc-19.png    image19.png          128746  PNG
+20.  doc-20.png    image20.png          107185  PNG
+21.  doc-21.png    image21.png          102469  PNG
+22.  doc-22.png    image22.png           93621  PNG
+23.  doc-23.png    image23.png           59940  PNG
+24.  doc-24.png    image24.png           90834  PNG
+25.  doc-25.png    image25.png          133433  PNG
+26.  doc-26.png    image26.png          118334  PNG
+27.  doc-27.png    image27.png           80321  PNG
+28.  doc-28.png    image28.png          109135  PNG
+29.  doc-29.png    image29.png           74189  PNG
+30.  doc-30.png    image30.png          145258  PNG
+31.  doc-31.png    image31.png          109388  PNG
+32.  doc-32.png    image32.png          110795  PNG
+33.  doc-33.png    image33.png          100406  PNG
+34.  doc-34.png    image34.png           97784  PNG
+35.  doc-35.png    image35.png          113810  PNG
+36.  doc-36.jpeg   image36.jpeg           9895  JPEG
+37.  doc-37.jpeg   image37.jpeg          10371  JPEG
+38.  doc-38.jpeg   image38.jpeg           8178  JPEG
+39.  doc-39.jpeg   image39.jpeg          12621  JPEG
+40.  doc-40.jpeg   image41.jpeg          10835  JPEG
+41.  doc-41.jpeg   image42.jpeg           9093  JPEG
+42.  doc-42.jpeg   image43.jpeg           9942  JPEG
+43.  doc-43.jpeg   image44.jpeg          10021  JPEG
+44.  doc-44.jpeg   image45.jpeg          13564  JPEG
+
+notes:
+- Images extracted as raw bytes from word/media/; original formats preserved.
+- Source archive has NO image40 (the docx relationship for it points to a broken target ../NULL).
+  Exported files are numbered contiguously doc-01..doc-44; per-file source mapping above is authoritative.
+- Image content was not analyzed; captions/sources not parsed (per request).
