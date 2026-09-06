@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="大连红色旅游文化地点展示——山海之间的红色记忆，旅顺、金州与市区革命旧址的图文漫游。红色足迹研学护照，带你走过每一段可丈量的历史。" />
+  <meta name="description" content="大连红色旅游文化地点展示——高校红色研学实践与社会效益平台，服务于大学生思政课与社会实践的数字化工具：路线规划、地标献花、研学护照与成果报告的一站式红色足迹研学导览。" />
   <title>滨城烽火 · 红色大连 | 红色足迹研学导览</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -229,7 +229,7 @@
       .hero-slogan { font-size: 0.8rem; padding: 0.4rem 1rem; }
     }
 
-    /* ===== 打卡 · 护照 · 报告 功能样式（追加，不影响原有样式） ===== */
+    /* ===== 献花 · 护照 · 报告 功能样式（追加，不影响原有样式） ===== */
     .checkin-btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
       margin-top: 1rem; padding: 0.55rem 1.3rem;
@@ -318,12 +318,13 @@
         <span class="brand-text">滨城烽火<span class="brand-sub">·</span>红色大连</span>
       </a>
       <nav class="nav-links" id="navLinks">
+        <a href="#intro">平台简介</a>
+        <a href="#featured">城市记忆</a>
+        <a href="#timeline">时间线</a>
         <a href="#route">导览路线</a>
         <a href="#sites">红色地标</a>
         <a href="#passport">研学护照</a>
-        <a href="#featured">城市记忆</a>
         <a href="#campus">高校合作</a>
-        <a href="#timeline">历史时间线</a>
         <a href="javascript:void(0)" class="passport-nav-link" id="openPassport">我的护照</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
@@ -336,18 +337,28 @@
   <section class="hero" id="hero">
     <div class="hero-media photo">
       <span class="photo-fallback hero-fallback">图片待替换<em>assets/imported/doc-42.jpeg</em></span>
-      <img src="assets/imported/doc-42.jpeg" alt="大连滨海港口景观" onerror="this.style.display='none'" />
+      <img src="assets/imported/doc-42.jpeg" alt="大连滨海港口景观" fetchpriority="high" decoding="async" onerror="this.classList.add('img-failed')" />
       <div class="hero-mask"></div>
     </div>
     <div class="hero-content container">
       <p class="hero-kicker"><span class="dot"></span> 大连 · 中国近代史的城市缩影 <span class="dot"></span></p>
       <h1 class="hero-title">滨城烽火<br /><em class="accent">红色大连</em></h1>
+      <div class="hero-platform">
+        <span class="hero-platform-main">🎓 —— 高校红色研学实践与社会效益平台 ——</span>
+        <span class="hero-platform-sub">服务于大学生思政课与社会实践的数字化工具 · <b>路线 / 地标 / 献花 / 护照 / 报告</b></span>
+      </div>
       <p class="hero-sub">从旅顺口的烽烟到工人运动的星火，这座滨海城市的每一次潮起潮落，都铭刻着不屈与新生。</p>
-      <div class="hero-slogan">📖 红色足迹研学护照 · 走过的每一步，都是历史的注脚</div>
       <div class="hero-actions">
         <a href="#route" class="btn btn-accent">开启导览路线</a>
         <a href="#passport" class="btn btn-passport">领取研学护照</a>
         <a href="#timeline" class="btn btn-ghost">回望历史瞬间</a>
+      </div>
+      <div class="hero-funnel" aria-label="研学漏斗流程">
+        <a class="hf-item" href="#intro"><span class="hf-n">01</span>了解背景</a><span class="hf-arrow">→</span>
+        <a class="hf-item" href="#route"><span class="hf-n">02</span>规划路线</a><span class="hf-arrow">→</span>
+        <a class="hf-item" href="#sites"><span class="hf-n">03</span>实地献花</a><span class="hf-arrow">→</span>
+        <a class="hf-item" href="#passport"><span class="hf-n">04</span>产出成果</a><span class="hf-arrow">→</span>
+        <a class="hf-item" href="#campus"><span class="hf-n">05</span>合作落地</a>
       </div>
     </div>
     <a href="#route" class="hero-scroll" aria-label="向下滚动">
@@ -356,11 +367,187 @@
     </a>
   </section>
 
+  <!-- ======= 大连红色文化简介 · 平台定位 ======= -->
+  <section class="intro" id="intro">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">01 · 平台简介</p>
+        <h2 class="section-title">蓝海之滨的<span class="accent">红色底色</span></h2>
+        <p class="section-note">PLATFORM INTRODUCTION</p>
+      </div>
+
+      <div class="intro-grid">
+        <div class="intro-media photo photo-lg">
+          <span class="photo-fallback">图片待替换<em>assets/imported/doc-05.png</em></span>
+          <img src="assets/imported/doc-05.png" alt="旅顺口海岸全景" loading="lazy" decoding="async" srcset="assets/imported/doc-05.png 1024w" sizes="(max-width: 860px) 92vw, 560px" onerror="this.classList.add('img-failed')" />
+        </div>
+        <div class="intro-text">
+          <p class="lead">大连地处辽东半岛最南端，三面环海，山海相依，是一座因港而兴、因海而美的百年城市。</p>
+          <p>近代以来，这里是列强觊觎与殖民争夺的最前沿，也是中国人民奋起抗争、走向新生的热土。从甲午年间的悲怆，到俄日殖民统治下的暗夜；从工人运动的星火，到解放黎明的凯歌——红色基因，早已融入这座城的每一片海、每一座山。</p>
+          <p>如今，旅顺口的历史遗迹、金州湾的革命故里与市区的地标旧址，共同构成一部立体的红色教科书。我们循着海风与钟声，将这片土地上值得被铭记的地点，一一向你展开。</p>
+          <p><strong class="platform-kicker">🎓 平台定位：</strong>本站是面向高校思政课、社会实践与研学团队的<strong>红色研学实践与社会效益平台</strong>——以「了解背景 → 规划路线 → 实地献花 → 产出成果 → 合作落地」为漏斗主线，提供一站式数字化工具，让每一次行走都沉淀为可量化的学习成果与社会效益。</p>
+        </div>
+      </div>
+
+      <div class="intro-stats">
+        <div class="stat-card"><div class="stat-num">6<span>大</span></div><div class="stat-label">代表性红色地标</div></div>
+        <div class="stat-card"><div class="stat-num">百<span>年</span></div><div class="stat-label">抗争与新生历程</div></div>
+        <div class="stat-card"><div class="stat-num">2<span>条</span></div><div class="stat-label">精选导览路线</div></div>
+        <div class="stat-card stat-accent"><div class="stat-num">1<span>本</span></div><div class="stat-label">红色足迹研学护照</div></div>
+      </div>
+
+      <div class="next-step">
+        <a href="#featured" class="next-step-btn">深入了解城市记忆，读懂背景脉络 <span class="next-arrow">→</span></a>
+        <span class="next-step-hint">STEP 01 · 了解背景</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 城市记忆 · 图文交错 ======= -->
+  <section class="featured" id="featured">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">02 · 城市记忆</p>
+        <h2 class="section-title">三段<span class="accent">可丈量的记忆</span></h2>
+        <p class="section-lead">从旅顺的炮台到市区的工坊，再到解放的黎明，用图文交错的方式，走进大连红色岁月的脉络。</p>
+      </div>
+
+      <div class="featured-list">
+<!-- row 1 · 左图右文 -->
+        <article class="feat-row">
+          <div class="feat-media photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-01.png</em></span>
+            <img src="assets/imported/doc-01.png" alt="旅顺炮台与工事遗址群" loading="lazy" decoding="async" srcset="assets/imported/doc-01.png 1024w" sizes="(max-width: 860px) 92vw, 560px" onerror="this.classList.add('img-failed')" />
+          </div>
+          <div class="feat-text">
+            <p class="feat-index">记忆 · 甲午与殖民</p>
+            <h3>旅顺：一座城市的屈辱与觉醒</h3>
+            <p>1894年，旅顺湾的那场劫难，让这座扼守渤海的军港蒙上了沉痛的阴影；此后俄日相继的殖民统治，更让旅顺反复易手。古老的港口、斑驳的炮台与静默的墓园，共同讲述着那段黑暗中的坚守。</p>
+            <ul class="feat-points">
+              <li>炮台与工事遗址群</li>
+              <li>日俄监狱旧址见证囚与守</li>
+              <li>万忠墓前，一场民族悲怆</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- row 2 · 右图左文 -->
+        <article class="feat-row">
+          <div class="feat-text">
+            <p class="feat-index">记忆 · 工人运动</p>
+            <h3>工人运动的星火：产业之城的脊梁</h3>
+            <p>作为近代中国北方重要的港口与工业城市，大连的码头与工厂里聚集了大批产业工人。从中华工学学会的成立到码头罢潮的呐喊，工人阶级以坚强的意志，点亮了这座沿海城市的晨光。</p>
+            <ul class="feat-points">
+              <li>中华工学会旧址的纸笔与旗帜</li>
+              <li>码头里，每一次抗争都是呐喊</li>
+              <li>工人夜校：催生一代觉醒的课堂</li>
+            </ul>
+          </div>
+          <div class="feat-media photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-04.png</em></span>
+            <img src="assets/imported/doc-04.png" alt="大连/旅顺港口景观" loading="lazy" decoding="async" srcset="assets/imported/doc-04.png 1024w" sizes="(max-width: 860px) 92vw, 560px" onerror="this.classList.add('img-failed')" />
+          </div>
+        </article>
+
+        <!-- row 3 · 左图右文 -->
+        <article class="feat-row">
+          <div class="feat-media photo">
+            <span class="photo-fallback">图片待替换<em>assets/imported/doc-43.jpeg</em></span>
+            <img src="assets/imported/doc-43.jpeg" alt="大连星海湾滨海景观" loading="lazy" decoding="async" srcset="assets/imported/doc-43.jpeg 1024w" sizes="(max-width: 860px) 92vw, 560px" onerror="this.classList.add('img-failed')" />
+          </div>
+          <div class="feat-text">
+            <p class="feat-index">记忆 · 解放与新生</p>
+            <h3>从解放到新生：面向渤海的红色印记</h3>
+            <p>1945年，随着抗战胜利与大连光复，这座吹着海风的城市迎来了新生。此后，作为解放区的重要港口与后方基地，大连源源不断地支援着全国的解放，用一次次转身书写新的篇章。</p>
+            <ul class="feat-points">
+              <li>苏军陵园长眠着异国英雄</li>
+              <li>港口装卸间，支前从未停歇</li>
+              <li>烈士英灵长守，铭记后来人</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="next-step">
+        <a href="#timeline" class="next-step-btn">沿时间线回望百年风云 <span class="next-arrow">→</span></a>
+        <span class="next-step-hint">STEP 02 · 了解背景</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= 历史时间线 ======= -->
+  <section class="timeline" id="timeline">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-eyebrow">03 · 历史时间线</p>
+        <h2 class="section-title">大连红色<span class="accent">脉络</span></h2>
+        <p class="section-lead">跟着潮水走过一个多世纪，翻阅这座城市沉痛而坚定的来时路。</p>
+      </div>
+
+      <div class="tl">
+        <div class="tl-line" aria-hidden="true"></div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1894</div>
+          <div class="tl-card"><h4>甲午战争 · 旅顺劫难</h4><p>11月21日日军攻陷旅顺，四天三夜屠杀约2万平民，仅36名埋尸者幸存。万忠墓埋忠骨，成为近代民族悲怆中最沉痛的一页。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1898–1905</div>
+          <div class="tl-card"><h4>俄日殖民统治更迭</h4><p>1898年沙俄强租旅大，1902年始建旅顺监狱。1904年日俄战争爆发，1905年日本夺取旅大，此后殖民统治长达40年。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1923</div>
+          <div class="tl-card"><h4>工人运动兴起</h4><p>12月2日，傅景阳等在沙河口成立"华人工学会"（后改名大连中华工学会），东北第一个中共领导的工会组织诞生，工人阶级开始有组织地发出呐喊。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1937</div>
+          <div class="tl-card"><h4>全面抗战</h4><p>烽烟漫过山海，大连儿女以各种方式投身民族救亡，前赴后继、不屈不挠。旅顺监狱中，抗日志士以生命坚守信仰。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1945</div>
+          <div class="tl-card"><h4>大连光复</h4><p>8月9日苏联出兵东北，8月22日苏军进驻旅大，结束日本40年殖民统治。这座海港告别暗夜，迎来期盼已久的新生。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1946</div>
+          <div class="tl-card"><h4>关向应病逝</h4><p>7月21日，从大连金州走出去的无产阶级革命家、八路军120师政委关向应在延安病逝，年仅44岁。毛泽东挽词："忠心耿耿，为党为国，向应同志不死。"</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1946–1949</div>
+          <div class="tl-card"><h4>支前与解放</h4><p>作为解放区重要的港口后方，大连源源不断输送物资与力量，支援全国解放战争。港口装卸间，支前从未停歇。</p></div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><span></span></div>
+          <div class="tl-year">1949</div>
+          <div class="tl-card"><h4>迈向新中国</h4><p>中华人民共和国成立，大连彻底走出阴霾，面向渤海，开启蓬勃建设的新篇章。</p></div>
+        </div>
+      </div>
+
+      <div class="next-step on-dark">
+        <a href="#route" class="next-step-btn">了解背景之后，开始规划你的路线 <span class="next-arrow">→</span></a>
+        <span class="next-step-hint">STEP 03 · 了解背景 → 规划路线</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ======= 推荐导览路线 ======= -->
   <section class="route" id="route">
     <div class="container">
       <div class="section-head">
-        <p class="section-eyebrow">01 · 推荐导览路线</p>
+        <p class="section-eyebrow">04 · 导览路线</p>
         <h2 class="section-title">一条不绕圈的<span class="accent">红色足迹</span></h2>
         <p class="section-lead">默认起点：大连站（市中心主要交通枢纽）。按地理动线排序，避免来回折返。</p>
         <p class="section-note">RECOMMENDED ROUTE</p>
@@ -564,7 +751,7 @@
               <div class="route-stop-meta">
                 <span>🚇 旅顺站 → 12号线 → 河口 → 1号线 → 大连站</span>
               </div>
-              <p class="route-stop-desc">集齐5枚打卡印章，生成个人红色研学报告。</p>
+              <p class="route-stop-desc">集齐5枚献花印章，生成个人红色研学报告。</p>
             </div>
           </div>
         </div>
@@ -578,35 +765,10 @@
         <p class="route-note">* 关向应纪念馆（金州区向应街道）位于大连北部，与旅顺方向相反，建议另择半日作为"北线延伸"单独前往。</p>
       </div>
     </div>
-  </section>
 
-  <!-- ======= 大连红色文化简介 ======= -->
-  <section class="intro" id="intro">
-    <div class="container">
-      <div class="section-head">
-        <p class="section-eyebrow">02 · 文化简介</p>
-        <h2 class="section-title">蓝海之滨的<span class="accent">红色底色</span></h2>
-        <p class="section-note">CULTURAL INTRODUCTION</p>
-      </div>
-
-      <div class="intro-grid">
-        <div class="intro-media photo photo-lg">
-          <span class="photo-fallback">图片待替换<em>assets/imported/doc-05.png</em></span>
-          <img src="assets/imported/doc-05.png" alt="旅顺口海岸全景" onerror="this.style.display='none'" />
-        </div>
-        <div class="intro-text">
-          <p class="lead">大连地处辽东半岛最南端，三面环海，山海相依，是一座因港而兴、因海而美的百年城市。</p>
-          <p>近代以来，这里是列强觊觎与殖民争夺的最前沿，也是中国人民奋起抗争、走向新生的热土。从甲午年间的悲怆，到俄日殖民统治下的暗夜；从工人运动的星火，到解放黎明的凯歌——红色基因，早已融入这座城的每一片海、每一座山。</p>
-          <p>如今，旅顺口的历史遗迹、金州湾的革命故里与市区的地标旧址，共同构成一部立体的红色教科书。我们循着海风与钟声，将这片土地上值得被铭记的地点，一一向你展开。</p>
-        </div>
-      </div>
-
-      <div class="intro-stats">
-        <div class="stat-card"><div class="stat-num">6<span>大</span></div><div class="stat-label">代表性红色地标</div></div>
-        <div class="stat-card"><div class="stat-num">百<span>年</span></div><div class="stat-label">抗争与新生历程</div></div>
-        <div class="stat-card"><div class="stat-num">2<span>条</span></div><div class="stat-label">精选导览路线</div></div>
-        <div class="stat-card stat-accent"><div class="stat-num">1<span>本</span></div><div class="stat-label">红色足迹研学护照</div></div>
-      </div>
+    <div class="next-step">
+      <a href="#sites" class="next-step-btn">规划好路线，去看看地标吧 <span class="next-arrow">→</span></a>
+      <span class="next-step-hint">STEP 04 · 规划路线 → 实地献花</span>
     </div>
   </section>
 
@@ -614,7 +776,7 @@
   <section class="sites" id="sites">
     <div class="container">
       <div class="section-head">
-        <p class="section-eyebrow">03 · 红色地标</p>
+        <p class="section-eyebrow">05 · 红色地标</p>
         <h2 class="section-title">值得停驻的<span class="accent">六处地标</span></h2>
         <p class="section-lead">每一处地点，都是一段可以亲身丈量的历史。卡片内含史实与故事，附研学任务卡。</p>
       </div>
@@ -624,7 +786,18 @@
         <article class="site-card">
           <div class="site-img photo">
             <span class="photo-fallback">图片待替换<em>assets/imported/doc-23.png</em></span>
-            <img src="assets/imported/doc-23.png" alt="旅顺日俄监狱旧址" onerror="this.style.display='none'" />
+            <!-- 高清占位提示：将 srcset 中的 1x 图替换为 2x 高清图（如 doc-23@2x.png 2048w）可提升清晰度 -->
+            <div class="compare" data-compare>
+              <img class="compare-today" src="assets/imported/doc-23.png" alt="旅顺日俄监狱旧址（今日新貌）" loading="lazy" decoding="async" srcset="assets/imported/doc-23.png 1024w" sizes="(max-width: 640px) 92vw, 380px" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              <div class="compare-hist" aria-hidden="true">
+                <img src="assets/imported/doc-23.png" alt="" loading="lazy" decoding="async" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              </div>
+              <div class="compare-line"></div>
+              <div class="compare-handle" role="slider" tabindex="0" aria-label="拖动查看今昔对比" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">⇄</div>
+              <span class="compare-label label-hist">历史影像（黑白）</span>
+              <span class="compare-label label-today">今日新貌（彩色）</span>
+              <span class="compare-hint">↔ 拖动对比今昔</span>
+            </div>
             <span class="site-tag">近代 · 遗迹</span>
           </div>
           <div class="site-body">
@@ -638,7 +811,7 @@
               <span class="site-task-badge">🎫 研学任务：找到"大"字形牢房的中心观察点</span>
             </div>
             <a href="#featured" class="site-link">探寻背后故事 <span>→</span></a>
-            <button class="checkin-btn" data-site="prison" data-name="旅顺日俄监狱旧址">📍 打卡</button>
+            <button class="checkin-btn" data-site="prison" data-name="旅顺日俄监狱旧址">🙏 献花</button>
           </div>
         </article>
 
@@ -646,7 +819,18 @@
         <article class="site-card">
           <div class="site-img photo">
             <span class="photo-fallback">图片待替换<em>assets/imported/doc-12.png</em></span>
-            <img src="assets/imported/doc-12.png" alt="万忠墓纪念馆纪念碑" onerror="this.style.display='none'" />
+            <!-- 高清占位提示：将 srcset 中的 1x 图替换为 2x 高清图（如 doc-12@2x.png 2048w）可提升清晰度 -->
+            <div class="compare" data-compare>
+              <img class="compare-today" src="assets/imported/doc-12.png" alt="万忠墓纪念馆纪念碑（今日新貌）" loading="lazy" decoding="async" srcset="assets/imported/doc-12.png 1024w" sizes="(max-width: 640px) 92vw, 380px" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              <div class="compare-hist" aria-hidden="true">
+                <img src="assets/imported/doc-12.png" alt="" loading="lazy" decoding="async" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              </div>
+              <div class="compare-line"></div>
+              <div class="compare-handle" role="slider" tabindex="0" aria-label="拖动查看今昔对比" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">⇄</div>
+              <span class="compare-label label-hist">历史影像（黑白）</span>
+              <span class="compare-label label-today">今日新貌（彩色）</span>
+              <span class="compare-hint">↔ 拖动对比今昔</span>
+            </div>
             <span class="site-tag">甲午 · 纪念</span>
           </div>
           <div class="site-body">
@@ -660,7 +844,7 @@
               <span class="site-task-badge">🎫 研学任务：记录纪念馆中一件最触动你的展品</span>
             </div>
             <a href="#featured" class="site-link">看更多故事 <span>→</span></a>
-            <button class="checkin-btn" data-site="wanzhongmu" data-name="万忠墓纪念馆">📍 打卡</button>
+            <button class="checkin-btn" data-site="wanzhongmu" data-name="万忠墓纪念馆">🙏 献花</button>
           </div>
         </article>
 
@@ -668,7 +852,18 @@
         <article class="site-card">
           <div class="site-img photo">
             <span class="photo-fallback">图片待替换<em>assets/imported/doc-31.png</em></span>
-            <img src="assets/imported/doc-31.png" alt="大连中华工学会旧址" onerror="this.style.display='none'" />
+            <!-- 高清占位提示：将 srcset 中的 1x 图替换为 2x 高清图（如 doc-31@2x.png 2048w）可提升清晰度 -->
+            <div class="compare" data-compare>
+              <img class="compare-today" src="assets/imported/doc-31.png" alt="大连中华工学会旧址（今日新貌）" loading="lazy" decoding="async" srcset="assets/imported/doc-31.png 1024w" sizes="(max-width: 640px) 92vw, 380px" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              <div class="compare-hist" aria-hidden="true">
+                <img src="assets/imported/doc-31.png" alt="" loading="lazy" decoding="async" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              </div>
+              <div class="compare-line"></div>
+              <div class="compare-handle" role="slider" tabindex="0" aria-label="拖动查看今昔对比" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">⇄</div>
+              <span class="compare-label label-hist">历史影像（黑白）</span>
+              <span class="compare-label label-today">今日新貌（彩色）</span>
+              <span class="compare-hint">↔ 拖动对比今昔</span>
+            </div>
             <span class="site-tag">工运 · 旧址</span>
           </div>
           <div class="site-body">
@@ -682,7 +877,7 @@
               <span class="site-task-badge">🎫 研学任务：在旧址前朗读一段"劳工神圣"的宣言</span>
             </div>
             <a href="#featured" class="site-link">看更多故事 <span>→</span></a>
-            <button class="checkin-btn" data-site="gongxuehui" data-name="大连中华工学会旧址">📍 打卡</button>
+            <button class="checkin-btn" data-site="gongxuehui" data-name="大连中华工学会旧址">🙏 献花</button>
           </div>
         </article>
 
@@ -690,7 +885,18 @@
         <article class="site-card">
           <div class="site-img photo">
             <span class="photo-fallback">图片待替换<em>assets/imported/doc-22.png</em></span>
-            <img src="assets/imported/doc-22.png" alt="大连市烈士陵园" onerror="this.style.display='none'" />
+            <!-- 高清占位提示：将 srcset 中的 1x 图替换为 2x 高清图（如 doc-22@2x.png 2048w）可提升清晰度 -->
+            <div class="compare" data-compare>
+              <img class="compare-today" src="assets/imported/doc-22.png" alt="大连市烈士陵园（今日新貌）" loading="lazy" decoding="async" srcset="assets/imported/doc-22.png 1024w" sizes="(max-width: 640px) 92vw, 380px" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              <div class="compare-hist" aria-hidden="true">
+                <img src="assets/imported/doc-22.png" alt="" loading="lazy" decoding="async" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              </div>
+              <div class="compare-line"></div>
+              <div class="compare-handle" role="slider" tabindex="0" aria-label="拖动查看今昔对比" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">⇄</div>
+              <span class="compare-label label-hist">历史影像（黑白）</span>
+              <span class="compare-label label-today">今日新貌（彩色）</span>
+              <span class="compare-hint">↔ 拖动对比今昔</span>
+            </div>
             <span class="site-tag">英烈 · 纪念</span>
           </div>
           <div class="site-body">
@@ -704,7 +910,7 @@
               <span class="site-task-badge">🎫 研学任务：在纪念广场前默哀一分钟</span>
             </div>
             <a href="#featured" class="site-link">看更多故事 <span>→</span></a>
-            <button class="checkin-btn" data-site="lieshilingyuan" data-name="大连市烈士陵园">📍 打卡</button>
+            <button class="checkin-btn" data-site="lieshilingyuan" data-name="大连市烈士陵园">🙏 献花</button>
           </div>
         </article>
 
@@ -712,7 +918,18 @@
         <article class="site-card">
           <div class="site-img photo">
             <span class="photo-fallback">图片待替换<em>assets/imported/doc-14.png</em></span>
-            <img src="assets/imported/doc-14.png" alt="旅顺苏军烈士陵园纪念塔" onerror="this.style.display='none'" />
+            <!-- 高清占位提示：将 srcset 中的 1x 图替换为 2x 高清图（如 doc-14@2x.png 2048w）可提升清晰度 -->
+            <div class="compare" data-compare>
+              <img class="compare-today" src="assets/imported/doc-14.png" alt="旅顺苏军烈士陵园纪念塔（今日新貌）" loading="lazy" decoding="async" srcset="assets/imported/doc-14.png 1024w" sizes="(max-width: 640px) 92vw, 380px" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              <div class="compare-hist" aria-hidden="true">
+                <img src="assets/imported/doc-14.png" alt="" loading="lazy" decoding="async" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              </div>
+              <div class="compare-line"></div>
+              <div class="compare-handle" role="slider" tabindex="0" aria-label="拖动查看今昔对比" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">⇄</div>
+              <span class="compare-label label-hist">历史影像（黑白）</span>
+              <span class="compare-label label-today">今日新貌（彩色）</span>
+              <span class="compare-hint">↔ 拖动对比今昔</span>
+            </div>
             <span class="site-tag">解放 · 纪念</span>
           </div>
           <div class="site-body">
@@ -726,7 +943,7 @@
               <span class="site-task-badge">🎫 研学任务：找到纪念塔上的中俄双语碑文</span>
             </div>
             <a href="#featured" class="site-link">看更多故事 <span>→</span></a>
-            <button class="checkin-btn" data-site="sujun" data-name="旅顺苏军烈士陵园">📍 打卡</button>
+            <button class="checkin-btn" data-site="sujun" data-name="旅顺苏军烈士陵园">🙏 献花</button>
           </div>
         </article>
 
@@ -734,7 +951,18 @@
         <article class="site-card">
           <div class="site-img photo">
             <span class="photo-fallback">图片待替换<em>assets/imported/doc-35.png</em></span>
-            <img src="assets/imported/doc-35.png" alt="关向应纪念馆" onerror="this.style.display='none'" />
+            <!-- 高清占位提示：将 srcset 中的 1x 图替换为 2x 高清图（如 doc-35@2x.png 2048w）可提升清晰度 -->
+            <div class="compare" data-compare>
+              <img class="compare-today" src="assets/imported/doc-35.png" alt="关向应纪念馆（今日新貌）" loading="lazy" decoding="async" srcset="assets/imported/doc-35.png 1024w" sizes="(max-width: 640px) 92vw, 380px" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              <div class="compare-hist" aria-hidden="true">
+                <img src="assets/imported/doc-35.png" alt="" loading="lazy" decoding="async" onerror="this.classList.add('img-failed'); if (this.closest('.compare')) this.closest('.compare').classList.add('compare-failed');" />
+              </div>
+              <div class="compare-line"></div>
+              <div class="compare-handle" role="slider" tabindex="0" aria-label="拖动查看今昔对比" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">⇄</div>
+              <span class="compare-label label-hist">历史影像（黑白）</span>
+              <span class="compare-label label-today">今日新貌（彩色）</span>
+              <span class="compare-hint">↔ 拖动对比今昔</span>
+            </div>
             <span class="site-tag">金州 · 故里</span>
           </div>
           <div class="site-body">
@@ -748,9 +976,14 @@
               <span class="site-task-badge">🎫 研学任务：数清展厅上方的44颗红五星</span>
             </div>
             <a href="#featured" class="site-link">看更多故事 <span>→</span></a>
-            <button class="checkin-btn" data-site="guanxiangying" data-name="关向应纪念馆">📍 打卡</button>
+            <button class="checkin-btn" data-site="guanxiangying" data-name="关向应纪念馆">🙏 献花</button>
           </div>
         </article>
+      </div>
+
+      <div class="next-step">
+        <a href="#passport" class="next-step-btn">献花之后，领取你的研学护照 <span class="next-arrow">→</span></a>
+        <span class="next-step-hint">STEP 05 · 实地献花 → 产出成果</span>
       </div>
     </div>
   </section>
@@ -759,7 +992,7 @@
   <section class="passport" id="passport">
     <div class="container">
       <div class="section-head">
-        <p class="section-eyebrow">04 · 创新概念</p>
+        <p class="section-eyebrow">06 · 研学护照</p>
         <h2 class="section-title">红色足迹<span class="accent">研学护照</span></h2>
         <p class="section-lead">不只是信息展示——这是一本可以带着走、盖着章、生成报告的线上研学工具。</p>
         <p class="section-note">RED FOOTPRINT PASSPORT</p>
@@ -767,7 +1000,7 @@
 
       <div class="passport-concept">
         <h3>核心创意：为什么用这个网站，而不是搜百度？</h3>
-        <p>百度给你词条，我们给你<strong style="color:var(--gold)">"路线 + 任务 + 打卡 + 报告"</strong>的完整体验。每到一处地标，完成研学任务卡，盖上一枚电子印章；走完路线，自动生成属于你的《大连红色研学报告》，可分享、可打印、可作为思政课实践证明。这不是百科，这是你的红色足迹。</p>
+        <p>百度给你词条，我们给你<strong style="color:var(--gold)">"路线 + 任务 + 献花 + 报告"</strong>的完整体验。每到一处地标，完成研学任务卡，献上一份缅怀，盖上一枚电子印章；走完路线，自动生成属于你的《大连红色研学报告》，可分享、可打印、可作为思政课实践证明。这不是百科，这是你的红色足迹。</p>
       </div>
 
       <div class="passport-flow">
@@ -777,9 +1010,9 @@
           <p>半日精华或全日深度，按地理动线规划，不绕圈、不折返。</p>
         </div>
         <div class="passport-step">
-          <div class="passport-step-icon">📍</div>
-          <h4>实地打卡</h4>
-          <p>到达地标后完成研学任务卡，记录你的观察与思考。</p>
+          <div class="passport-step-icon">🙏</div>
+          <h4>实地献花</h4>
+          <p>到达地标后完成研学任务卡，献上一份缅怀，记录你的观察与思考。</p>
         </div>
         <div class="passport-step">
           <div class="passport-step-icon">🔖</div>
@@ -789,79 +1022,13 @@
         <div class="passport-step">
           <div class="passport-step-icon">📜</div>
           <h4>生成报告</h4>
-          <p>自动汇总打卡记录、研学笔记，生成可分享的个人研学报告与证书。</p>
+          <p>自动汇总献花记录、研学笔记，生成可分享的个人研学报告与证书。</p>
         </div>
       </div>
 
-      <div class="passport-cta">
-        <a href="#route" class="btn">立即开启我的红色足迹 →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= 城市记忆 · 图文交错 ======= -->
-  <section class="featured" id="featured">
-    <div class="container">
-      <div class="section-head">
-        <p class="section-eyebrow">05 · 城市记忆</p>
-        <h2 class="section-title">三段<span class="accent">可丈量的记忆</span></h2>
-        <p class="section-lead">从旅顺的炮台到市区的工坊，再到解放的黎明，用图文交错的方式，走进大连红色岁月的脉络。</p>
-      </div>
-
-      <div class="featured-list">
-<!-- row 1 · 左图右文 -->
-        <article class="feat-row">
-          <div class="feat-media photo">
-            <span class="photo-fallback">图片待替换<em>assets/imported/doc-01.png</em></span>
-            <img src="assets/imported/doc-01.png" alt="旅顺炮台与工事遗址群" onerror="this.style.display='none'" />
-          </div>
-          <div class="feat-text">
-            <p class="feat-index">记忆 · 甲午与殖民</p>
-            <h3>旅顺：一座城市的屈辱与觉醒</h3>
-            <p>1894年，旅顺湾的那场劫难，让这座扼守渤海的军港蒙上了沉痛的阴影；此后俄日相继的殖民统治，更让旅顺反复易手。古老的港口、斑驳的炮台与静默的墓园，共同讲述着那段黑暗中的坚守。</p>
-            <ul class="feat-points">
-              <li>炮台与工事遗址群</li>
-              <li>日俄监狱旧址见证囚与守</li>
-              <li>万忠墓前，一场民族悲怆</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- row 2 · 右图左文 -->
-        <article class="feat-row">
-          <div class="feat-text">
-            <p class="feat-index">记忆 · 工人运动</p>
-            <h3>工人运动的星火：产业之城的脊梁</h3>
-            <p>作为近代中国北方重要的港口与工业城市，大连的码头与工厂里聚集了大批产业工人。从中华工学学会的成立到码头罢潮的呐喊，工人阶级以坚强的意志，点亮了这座沿海城市的晨光。</p>
-            <ul class="feat-points">
-              <li>中华工学会旧址的纸笔与旗帜</li>
-              <li>码头里，每一次抗争都是呐喊</li>
-              <li>工人夜校：催生一代觉醒的课堂</li>
-            </ul>
-          </div>
-          <div class="feat-media photo">
-            <span class="photo-fallback">图片待替换<em>assets/imported/doc-04.png</em></span>
-            <img src="assets/imported/doc-04.png" alt="大连/旅顺港口景观" onerror="this.style.display='none'" />
-          </div>
-        </article>
-
-        <!-- row 3 · 左图右文 -->
-        <article class="feat-row">
-          <div class="feat-media photo">
-            <span class="photo-fallback">图片待替换<em>assets/imported/doc-43.jpeg</em></span>
-            <img src="assets/imported/doc-43.jpeg" alt="大连星海湾滨海景观" onerror="this.style.display='none'" />
-          </div>
-          <div class="feat-text">
-            <p class="feat-index">记忆 · 解放与新生</p>
-            <h3>从解放到新生：面向渤海的红色印记</h3>
-            <p>1945年，随着抗战胜利与大连光复，这座吹着海风的城市迎来了新生。此后，作为解放区的重要港口与后方基地，大连源源不断地支援着全国的解放，用一次次转身书写新的篇章。</p>
-            <ul class="feat-points">
-              <li>苏军陵园长眠着异国英雄</li>
-              <li>港口装卸间，支前从未停歇</li>
-              <li>烈士英灵长守，铭记后来人</li>
-            </ul>
-          </div>
-        </article>
+      <div class="next-step on-dark">
+        <a href="#campus" class="next-step-btn">带着研学成果，洽谈高校合作 <span class="next-arrow">→</span></a>
+        <span class="next-step-hint">STEP 06 · 产出成果 → 合作落地</span>
       </div>
     </div>
   </section>
@@ -870,7 +1037,7 @@
   <section class="campus" id="campus">
     <div class="container">
       <div class="section-head">
-        <p class="section-eyebrow">06 · 高校研学合作</p>
+        <p class="section-eyebrow">07 · 高校合作</p>
         <h2 class="section-title">让红色足迹成为<span class="accent">思政课堂</span></h2>
         <p class="section-lead">面向高校社团、思政课、暑期实践团队，提供团体预约、课程包、成果展示与团队排行。</p>
         <p class="section-note">CAMPUS COOPERATION</p>
@@ -899,8 +1066,8 @@
             <div class="campus-feature">
               <div class="campus-feature-icon">🏆</div>
               <div>
-                <h4>团队打卡排行榜</h4>
-                <p>各高校团队完成打卡后自动积分排行，按完成度、任务质量、报告深度综合评分，激发团队活力。</p>
+                <h4>团队献花排行榜</h4>
+                <p>各高校团队完成献花后自动积分排行，按完成度、任务质量、报告深度综合评分，激发团队活力。</p>
               </div>
             </div>
             <div class="campus-feature">
@@ -913,31 +1080,31 @@
           </div>
 
           <div class="campus-ranking">
-            <h4>🔥 本周高校研学团队排行榜（示例）</h4>
+            <h4>🔥 本周高校研学团队排行榜（示例）<span class="demo-tag">🔹 功能示例 / 数据模拟</span></h4>
             <div class="ranking-list">
               <div class="ranking-item">
                 <div class="ranking-rank">1</div>
-                <div class="ranking-name">大连理工大学 · 马克思主义学院实践团</div>
+                <div class="ranking-name">省内重点高校 · 马克思主义学院实践团</div>
                 <div class="ranking-score">986 <small>积分</small></div>
               </div>
               <div class="ranking-item">
                 <div class="ranking-rank">2</div>
-                <div class="ranking-name">辽宁师范大学 · 思政课研学小组</div>
+                <div class="ranking-name">市属师范高校 · 思政课研学小组</div>
                 <div class="ranking-score">942 <small>积分</small></div>
               </div>
               <div class="ranking-item">
                 <div class="ranking-rank">3</div>
-                <div class="ranking-name">大连海事大学 · 青年马克思主义者培养工程</div>
+                <div class="ranking-name">涉海类高校 · 青年马克思主义者培养工程</div>
                 <div class="ranking-score">915 <small>积分</small></div>
               </div>
               <div class="ranking-item">
                 <div class="ranking-rank">4</div>
-                <div class="ranking-name">东北财经大学 · 暑期社会实践队</div>
+                <div class="ranking-name">财经类高校 · 暑期社会实践队</div>
                 <div class="ranking-score">878 <small>积分</small></div>
               </div>
               <div class="ranking-item">
                 <div class="ranking-rank">5</div>
-                <div class="ranking-name">大连大学 · 红色足迹寻访团</div>
+                <div class="ranking-name">市属综合高校 · 红色足迹寻访团</div>
                 <div class="ranking-score">853 <small>积分</small></div>
               </div>
             </div>
@@ -950,7 +1117,7 @@
           <form onsubmit="event.preventDefault(); alert('感谢提交！我们将尽快与您联系。（本表单为展示用，暂未接入后端）');">
             <div class="campus-form-group">
               <label>学校 / 学院名称</label>
-              <input type="text" placeholder="例如：大连理工大学马克思主义学院" />
+              <input type="text" placeholder="例如：某某大学马克思主义学院" />
             </div>
             <div class="campus-form-group">
               <label>团队类型</label>
@@ -982,68 +1149,10 @@
           </form>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ======= 历史时间线 ======= -->
-  <section class="timeline" id="timeline">
-    <div class="container">
-      <div class="section-head">
-        <p class="section-eyebrow">07 · 历史时间线</p>
-        <h2 class="section-title">大连红色<span class="accent">脉络</span></h2>
-        <p class="section-lead">跟着潮水走过一个多世纪，翻阅这座城市沉痛而坚定的来时路。</p>
-      </div>
-
-      <div class="tl">
-        <div class="tl-line" aria-hidden="true"></div>
-
-        <div class="tl-item">
-          <div class="tl-dot"><span></span></div>
-          <div class="tl-year">1894</div>
-          <div class="tl-card"><h4>甲午战争 · 旅顺劫难</h4><p>11月21日日军攻陷旅顺，四天三夜屠杀约2万平民，仅36名埋尸者幸存。万忠墓埋忠骨，成为近代民族悲怆中最沉痛的一页。</p></div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"><span></span></div>
-          <div class="tl-year">1898–1905</div>
-          <div class="tl-card"><h4>俄日殖民统治更迭</h4><p>1898年沙俄强租旅大，1902年始建旅顺监狱。1904年日俄战争爆发，1905年日本夺取旅大，此后殖民统治长达40年。</p></div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"><span></span></div>
-          <div class="tl-year">1923</div>
-          <div class="tl-card"><h4>工人运动兴起</h4><p>12月2日，傅景阳等在沙河口成立"华人工学会"（后改名大连中华工学会），东北第一个中共领导的工会组织诞生，工人阶级开始有组织地发出呐喊。</p></div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"><span></span></div>
-          <div class="tl-year">1937</div>
-          <div class="tl-card"><h4>全面抗战</h4><p>烽烟漫过山海，大连儿女以各种方式投身民族救亡，前赴后继、不屈不挠。旅顺监狱中，抗日志士以生命坚守信仰。</p></div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"><span></span></div>
-          <div class="tl-year">1945</div>
-          <div class="tl-card"><h4>大连光复</h4><p>8月9日苏联出兵东北，8月22日苏军进驻旅大，结束日本40年殖民统治。这座海港告别暗夜，迎来期盼已久的新生。</p></div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"><span></span></div>
-          <div class="tl-year">1946</div>
-          <div class="tl-card"><h4>关向应病逝</h4><p>7月21日，从大连金州走出去的无产阶级革命家、八路军120师政委关向应在延安病逝，年仅44岁。毛泽东挽词："忠心耿耿，为党为国，向应同志不死。"</p></div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"><span></span></div>
-          <div class="tl-year">1946–1949</div>
-          <div class="tl-card"><h4>支前与解放</h4><p>作为解放区重要的港口后方，大连源源不断输送物资与力量，支援全国解放战争。港口装卸间，支前从未停歇。</p></div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot"><span></span></div>
-          <div class="tl-year">1949</div>
-          <div class="tl-card"><h4>迈向新中国</h4><p>中华人民共和国成立，大连彻底走出阴霾，面向渤海，开启蓬勃建设的新篇章。</p></div>
-        </div>
+      <div class="next-step">
+        <a href="#about" class="next-step-btn">查看关于本站与设计思维推导 <span class="next-arrow">→</span></a>
+        <span class="next-step-hint">STEP 07 · 合作落地 · 收尾</span>
       </div>
     </div>
   </section>
@@ -1057,10 +1166,39 @@
         </div>
         <div class="about-text">
           <h3>铭记历史，是为了更好的前行</h3>
-          <p>本站为大连红色旅游文化地点的静态展示页，现已升级为"红色足迹研学导览"平台。所有内容仅用于文化整理与分享，供读者行走城市时回望来处；文中所述地点与史实依据公开资料整理，欢迎指正补充。</p>
+          <p>本站为大连红色旅游文化地点的静态展示页，现已升级为面向高校思政课与社会实践的「红色足迹研学」数字化平台。所有内容仅用于文化整理与分享，供读者行走城市时回望来处；文中所述地点与史实依据公开资料整理，欢迎指正补充。</p>
         </div>
         <a href="#hero" class="btn btn-accent">回到首页 ↑</a>
       </div>
+
+      <details class="design-panel">
+        <summary>🔬 设计思维推导（矛盾矩阵与物-场分析）</summary>
+        <div class="design-content">
+          <h4>一、矛盾矩阵（TRIZ 创新原理）</h4>
+          <p>核心矛盾：<strong>学生希望深度学习</strong>（期望获得有思考、有体感的思政教育，并将实践成果沉淀为可量化的证明）<strong>vs 现场讲解枯燥、注意力难以维持</strong>（传统展陈以单向文字与讲解为主，信息密度低、参与感弱、反馈缺失）。</p>
+          <ul>
+            <li>改进参数：教育效果 / 学习深度（对应 TRIZ 中「运动物体的作用时间」等教育效果类参数）；恶化参数：注意力保持 / 体验趣味性。</li>
+            <li>求解原理 ① <strong>中介物原理（No.24）</strong>——引入「研学护照」作为任务载体，将旁观者变为参与者；</li>
+            <li>求解原理 ② <strong>动态化原理（No.15）</strong>——今昔对比滑块、献花动效、进度可视化，让静态史实"活"起来；</li>
+            <li>求解原理 ③ <strong>分割原理（No.1）</strong>——路线分段、任务拆卡、报告自动生成，降低认知负荷、形成完整闭环。</li>
+          </ul>
+
+          <h4>二、物-场分析（Su-Field）</h4>
+          <p>原有物场模型：<strong>学生（S1）— 静态展板 / 讲解员（S2）— 单向讲解场（F1·不足场）</strong>。信息单向传递、缺乏反馈，属于「效应不足」的物场系统。</p>
+          <div class="design-model">
+            <span>旧模型：S1（学生）——[F1 单向讲解·不足]——S2（展板/讲解员）</span>
+            <span>新模型：S1（学生）——[F1 讲解]——S2（展板）</span>
+            <span>　　　　＋ S3（研学护照·中介物）——[F2 互动反馈场：献花/进度/排行]</span>
+            <span>　　　　＋ [F3 时间对照场：今昔对比滑块]</span>
+          </div>
+          <ul>
+            <li><strong>互动反馈场（F2）</strong>：献花仪式、进度条、团队排行 → 唤起情感参与与仪式感；</li>
+            <li><strong>时间对照场（F3）</strong>：今昔对比滑块 → 提供史料纵深与"在场感"；</li>
+            <li><strong>产出物场</strong>：研学报告 / 实践证明 → 将体验转化为可分享、可考核的社会效益载体。</li>
+          </ul>
+          <p><strong>结论：</strong>数字化工具作为"场"的增强器，把单向"观看"改造为「行走—观察—任务—反馈—产出」的完整研学回路，从而提升高校思政课实践教学的效果与可量化社会效益。</p>
+        </div>
+      </details>
 
       <div class="pending-list">
         <h4>⚠ 待核实史实清单</h4>
@@ -1085,11 +1223,12 @@
           <p class="footer-tagline">山海之间的红色记忆<br />一座滨海城市，半部近代史。<br />红色足迹研学护照 · 走过的每一步都是历史的注脚</p>
         </div>
         <nav class="footer-links" aria-label="页脚导航">
+          <a href="#intro">平台简介</a>
           <a href="#route">导览路线</a>
           <a href="#sites">红色地标</a>
           <a href="#passport">研学护照</a>
-          <a href="#featured">城市记忆</a>
           <a href="#campus">高校合作</a>
+          <a href="#featured">城市记忆</a>
           <a href="#timeline">历史时间线</a>
         </nav>
       </div>
@@ -1119,13 +1258,13 @@
     <div class="passport-modal">
       <span class="passport-close" id="closePassport" title="关闭">✕</span>
       <h3>我的红色研学护照</h3>
-      <p class="pm-sub">已打卡地标自动记录时间，可随时查看进度并生成研学报告。</p>
+      <p class="pm-sub">已献花地标自动记录时间，可随时查看进度并生成研学报告。</p>
       <div class="passport-progress-head"><span>研学进度</span><span id="progressText">0 / 6</span></div>
       <div class="passport-progress"><div class="passport-progress-fill" id="progressFill"></div></div>
-      <div class="passport-list-title">打卡记录</div>
+      <div class="passport-list-title">献花记录</div>
       <div class="passport-list" id="passportList"></div>
       <button class="gen-report" id="genReport">📄 生成研学报告（PDF）</button>
-      <p class="passport-tip">报告将自动截取当前打卡状态并生成 PDF 下载</p>
+      <p class="passport-tip">报告将自动截取当前献花状态并生成 PDF 下载</p>
     </div>
   </div>
 
@@ -1163,14 +1302,14 @@
         return '' + d.getFullYear() + p(d.getMonth()+1) + p(d.getDate()) + p(d.getHours()) + p(d.getMinutes());
       }
 
-      // ---- 1. 打卡按钮 ----
+      // ---- 1. 献花按钮 ----
       function initButtons() {
         var checkins = loadCheckins();
         document.querySelectorAll('.checkin-btn').forEach(function(btn){
           var key = btn.getAttribute('data-site');
           if (checkins[key]) {
             btn.classList.add('done'); btn.disabled = true;
-            btn.textContent = '✓ 已打卡 · ' + fmtTime(checkins[key].time);
+            btn.textContent = '🌹 已献花 · 缅怀';
           }
           btn.addEventListener('click', function(){
             if (btn.disabled) return;
@@ -1178,7 +1317,10 @@
             checkins[key] = { name: btn.getAttribute('data-name'), time: now };
             saveCheckins(checkins);
             btn.classList.add('done'); btn.disabled = true;
-            btn.textContent = '✓ 已打卡 · ' + fmtTime(now);
+            btn.textContent = '🌹 已献花 · 缅怀';
+            btn.classList.add('pop');
+            if (window.spawnPetalBurst) window.spawnPetalBurst(btn);
+            setTimeout(function(){ btn.classList.remove('pop'); }, 600);
             renderPassport();
           });
         });
@@ -1199,7 +1341,7 @@
           var st = document.createElement('span'); st.className = 'pi-status';
           var nm = document.createElement('span'); nm.className = 'pi-name'; nm.textContent = s.name;
           var tm = document.createElement('span'); tm.className = 'pi-time';
-          tm.textContent = checkins[s.key] ? fmtTime(checkins[s.key].time) : '未打卡';
+          tm.textContent = checkins[s.key] ? fmtTime(checkins[s.key].time) : '未献花';
           item.appendChild(st); item.appendChild(nm); item.appendChild(tm);
           listEl.appendChild(item);
         });
@@ -1227,13 +1369,13 @@
         function p(n){ return n < 10 ? '0' + n : '' + n; }
         var dateStr = today.getFullYear() + '-' + p(today.getMonth()+1) + '-' + p(today.getDate());
         var rows = SITES.map(function(s){
-          return '<div class="rs-row ' + (checkins[s.key] ? 'done' : '') + '"><span class="rs-dot"></span><span class="rs-name">' + s.name + '</span><span class="rs-time">' + (checkins[s.key] ? fmtTime(checkins[s.key].time) : '未打卡') + '</span></div>';
+          return '<div class="rs-row ' + (checkins[s.key] ? 'done' : '') + '"><span class="rs-dot"></span><span class="rs-name">' + s.name + '</span><span class="rs-time">' + (checkins[s.key] ? fmtTime(checkins[s.key].time) : '未献花') + '</span></div>';
         }).join('');
         document.getElementById('reportStage').innerHTML =
           '<h1>我的红色研学报告</h1>' +
           '<div class="rs-sub">滨城烽火 · 红色大连 — 红色足迹研学护照 · 生成日期：' + dateStr + '</div>' +
           '<div class="rs-banner"><h2>红色足迹研学进度 ' + doneCount + ' / ' + SITES.length + '</h2><p>走过的每一步，都是历史的注脚。</p></div>' +
-          '<div class="rs-section"><h3>地标打卡记录</h3>' + rows + '</div>' +
+          '<div class="rs-section"><h3>地标献花记录</h3>' + rows + '</div>' +
           '<div class="rs-section"><h3>研学感悟</h3><p style="font-size:14px;color:#666;line-height:1.8;">从旅顺口的烽烟到工人运动的星火，这座滨海城市的每一次潮起潮落，都铭刻着不屈与新生。红色基因，早已融入这座城的每一片海、每一座山。</p></div>' +
           '<div class="rs-meta">本报告由「滨城烽火 · 红色大连」自动生成 · 内容依据公开史实资料整理</div>';
       }
